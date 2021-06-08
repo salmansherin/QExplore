@@ -1,4 +1,6 @@
 # QExplore: A Tool for Automatic Exploration of Dynamic Web Applications By Using Reinforcement Learning
+![](https://github.com/salmansherin/QExplore/blob/ec1e06fb936373fcfcf04d9162d859da4f060b20/img.jpg)
+## Summary
 QExplore is a dynamic automatic exploration tool for dynamic web applications. It reverse engineers a state-flow model that can be used to automate several web analysis and testing techniques. The tool uses a popular reinforcement learning technique, called Q-learning, to systematically explore a web application. To feed the input fields and explore the states behind the web forms, QExplore uses mocker data generator.
 
 ## Features
