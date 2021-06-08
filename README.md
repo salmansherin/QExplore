@@ -16,3 +16,6 @@ QExplore is a dynamic automatic exploration tool for dynamic web applications. I
 * Currently, QExplore has no support for performing interactions such as Drag and Drop.
 * QExplore has no GUI currently and is a work in progress. 
 * The minimun time limit for QExplore to explore any dynamic application to provided reasonable coverage is 10 minutes.
+
+## Short video
+
