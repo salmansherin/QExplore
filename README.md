@@ -10,7 +10,7 @@ QExplore is a dynamic automatic exploration tool for dynamic web applications. I
 * It allows users to define multiple user inputs for single input field. 
 * QExplore automatically reverse engineer's a state-flow graph that can be used for testing activities such as test case generation and execution.
 * QExplore can be run on any type of dynamic web applications
-* QEplore supports multiple browsers i.e. firefox, chrome and IE.
+* QEplore supports Firefox and Chrome.
 
 ## Limitations
 * Currently, QExplore has no support for performing interactions such as Drag and Drop.
