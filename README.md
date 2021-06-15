@@ -18,4 +18,4 @@ QExplore is a dynamic automatic exploration tool for dynamic web applications. I
 * The minimun time limit for QExplore to explore any dynamic application to provided reasonable coverage is 10 minutes.
 
 ## Short video
-
+https://youtu.be/w06x-68TiuQ
