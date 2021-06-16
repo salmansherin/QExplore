@@ -1,0 +1,257 @@
+<html><head><title>PHP Timeclock 1.04 - Daily Time Report</title>
+
+
+<link rel="stylesheet" type="text/css" media="screen" href="../css/default.css">
+<link rel="stylesheet" type="text/css" media="print" href="../css/print.css">
+<script language="javascript" src="../scripts/CalendarPopup.js"></script>
+<script language="javascript">document.write(getCalendarStyles());</script><style>
+.cpYearNavigation,.cpMonthNavigation { background-color:#cdc0b0; text-align:center; vertical-align:center; text-decoration:none; color:#000000; font-family:Tahoma; border-width:0px 0px 1px 0px; border-style:solid; border-color: #748771; }
+.cpDayColumnHeader, .cpYearNavigation,.cpMonthNavigation,.cpCurrentMonthDate,.cpCurrentMonthDateDisabled,.cpOtherMonthDate,.cpOtherMonthDateDisabled,.cpCurrentDate,.cpCurrentDateDisabled,.cpTodayText,.cpTodayTextDisabled,.cpText { font-family:Tahoma; font-size:11px; }
+TD.cpDayColumnHeader { text-align:right; border:solid thin #C0C0C0;border-width:0px 0px 1px 0px; }
+.cpCurrentMonthDate, .cpOtherMonthDate, .cpCurrentDate  { text-align:right; text-decoration:none; }
+.cpCurrentMonthDateDisabled, .cpOtherMonthDateDisabled, .cpCurrentDateDisabled { color:#D0D0D0; text-align:right; text-decoration:line-through; }
+.cpCurrentMonthDate, .cpCurrentDate { color:#000000; }
+.cpOtherMonthDate { color:#808080; }
+TD.cpCurrentDate { color:white; background-color: #eeeeee; border-width:1px; border:solid thin #748771; }
+TD.cpCurrentDateDisabled { border-width:1px; border:solid thin #FFAAAA; }
+TD.cpTodayText, TD.cpTodayTextDisabled { border:solid thin #C0C0C0; border-width:1px 0px 0px 0px;}
+A.cpTodayText, SPAN.cpTodayTextDisabled { height:20px; }
+A.cpTodayText { color:black; }
+.cpTodayTextDisabled { color:#D0D0D0; }
+.cpBorder { border:solid thin #748771;border-width:1px 1px 1px 1px; }
+</style>
+
+<script language="javascript">var cal = new CalendarPopup('mydiv');</script>
+<script language="javascript" src="../scripts/pnguin.js"></script>
+<script language="JavaScript">
+
+    function office_names() {
+        var select = document.form.office_name;
+        var groups_select = document.form.group_name;
+        var users_select = document.form.user_name;
+        select.options[0] = new Option("All");
+        select.options[0].value = 'All';
+        groups_select.options[0] = new Option("All");
+        groups_select.options[0].value = 'All';
+        users_select.options[0] = new Option("All");
+        users_select.options[0].value = 'All';
+
+        select.options[1] = new Option("quest");
+select.options[1].value = "quest";
+    }
+
+
+    function group_names() {
+        var offices_select = document.form.office_name;
+        var groups_select = document.form.group_name;
+        var users_select = document.form.user_name;
+        groups_select.options[0] = new Option("All");
+        groups_select.options[0].value = 'All';
+        users_select.options[0] = new Option("All");
+        users_select.options[0].value = 'All';
+
+                if (offices_select.options[offices_select.selectedIndex].text == "quest") {
+            groups_select.options[0] = new Option("All");
+groups_select.options[0].value = 'All';
+groups_select.options[1] = new Option("Chess");
+groups_select.options[1].value = "Chess";
+groups_select.options[2] = new Option("UAV");
+groups_select.options[2].value = "UAV";
+        }
+                if (users_select.options[users_select.selectedIndex].value != 'All') {
+            users_select.length = 0;
+        }
+        if (groups_select.options[groups_select.selectedIndex].value != 'All') {
+            groups_select.length = 0;
+        }
+        if (offices_select.options[offices_select.selectedIndex].value == 'All') {
+            groups_select.options[0] = new Option("All");
+groups_select.options[0].value = 'All';
+        }
+        if (groups_select.options[groups_select.selectedIndex].value == 'All') {
+            users_select.options[0] = new Option("All");
+users_select.options[0].value = 'All';
+        }
+    }
+
+
+    function user_names() {
+        var offices_select = document.form.office_name;
+        var groups_select = document.form.group_name;
+        var users_select = document.form.user_name;
+        users_select.options[0] = new Option("All");
+        users_select.options[0].value = 'All';
+
+        if (offices_select.options[offices_select.selectedIndex].value != 'All') {
+            users_select.length = 0;
+        }
+
+                if (offices_select.options[offices_select.selectedIndex].text == "quest") {
+            
+            if (groups_select.options[groups_select.selectedIndex].text == "Chess") {
+                users_select.options[0] = new Option("All");
+users_select.options[0].value = 'All';
+            }
+            
+            if (groups_select.options[groups_select.selectedIndex].text == "UAV") {
+                users_select.options[0] = new Option("All");
+users_select.options[0].value = 'All';
+users_select.options[1] = new Option("salmansherin");
+users_select.options[1].value = "salmansherin";
+            }
+                    }
+                if (groups_select.options[groups_select.selectedIndex].value == 'All') {
+            users_select.options[0] = new Option("All");
+users_select.options[0].value = 'All';
+        }
+    }
+
+</script>
+</head>
+<body onload="office_names();">
+<table class="header" width="100%" cellspacing="1" cellpadding="0" border="0">
+  <tbody><tr><td align="left"><a href="../index.php"><img src="images/logos/phptimeclock.png" border="0"></a></td>
+    <td colspan="2" scope="col" valign="middle" align="right"><a href="http://www.historychannel.com/tdih" style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;">March 9, 2021&nbsp;&nbsp;</a></td></tr>
+</tbody></table>
+<table class="topmain_row_color" width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tbody><tr>
+    <td valign="middle" align="right"><img src="../images/icons/house.png" border="0">&nbsp;&nbsp;</td>
+    <td width="10" valign="middle" align="right"><a href="../index.php" style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;">
+        Home&nbsp;&nbsp;</a></td>
+    <td width="23" valign="middle" align="right"><img src="../images/icons/bricks.png" border="0">&nbsp;&nbsp;</td>
+    <td width="10" valign="middle" align="right"><a href="../login.php" style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;">
+        Administration&nbsp;&nbsp;</a></td>
+    <td width="23" valign="middle" align="right"><img src="../images/icons/report.png" border="0">&nbsp;&nbsp;</td>
+    <td width="10" valign="middle" align="right"><a href="index.php" style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;">
+        Reports&nbsp;&nbsp;</a></td>
+    <td width="23" valign="middle" align="right"><img src="../images/icons/time.png" border="0">&nbsp;&nbsp;</td>
+    <td width="10" valign="middle" align="right"><a href="../punchclock/menu.php" style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;">Punchclock&nbsp;&nbsp;</a></td>
+</tr></tbody></table>
+<table width="100%" height="89%" cellspacing="1" cellpadding="0" border="0">
+  <tbody><tr valign="top">
+    <td>
+      <table width="100%" height="100%" cellspacing="1" cellpadding="10" border="0">
+        <tbody><tr class="right_main_text">
+          <td valign="top">
+            <br>
+            <form name="form" action="/timeclock/reports/timerpt.php" method="post" onsubmit="return isFromOrToDate();">
+            <table class="table_border" width="60%" cellspacing="0" cellpadding="3" border="0" align="center">
+              <tbody><tr>
+                <th class="rightside_heading" halign="left" colspan="3" nowrap=""><img src="../images/icons/report.png">&nbsp;&nbsp;&nbsp;Daily
+                    Time Report</th></tr>
+              <tr><td height="15"></td></tr>
+              <input type="hidden" name="date_format" value="M/d/yyyy">
+              <tr><td class="table_rows" style="padding-left:32px;" width="20%" nowrap="" height="25">Choose Office:</td><td colspan="2" style="color:red;font-family:Tahoma;font-size:10px;padding-left:20px;" width="80%">
+                      <select name="office_name" onchange="group_names();">
+                      <option value="All">All</option><option value="quest">quest</option></select></td></tr>
+              <tr><td class="table_rows" style="padding-left:32px;" width="20%" nowrap="" height="25">Choose Group:</td><td colspan="2" style="color:red;font-family:Tahoma;font-size:10px;padding-left:20px;" width="80%">
+                      <select name="group_name" onchange="user_names();">
+                      <option value="All">All</option></select></td></tr>
+              <tr><td class="table_rows" style="padding-left:32px;" width="20%" nowrap="" height="25">Choose Username:</td><td colspan="2" style="color:red;font-family:Tahoma;font-size:10px;padding-left:20px;" width="80%">
+                      <select name="user_name">
+                      <option value="All">All</option></select></td></tr>
+              <tr><td class="table_rows" style="padding-left:32px;" width="20%" nowrap="">From Date: (m/d/yyyy)</td><td style="color:red;font-family:Tahoma;font-size:10px;padding-left:20px;" width="80%">
+                      <input type="text" size="10" maxlength="10" name="from_date" style="color:#27408b">&nbsp;*&nbsp;&nbsp;
+                      <a href="#" onclick="form.from_date.value='';cal.select(document.forms['form'].from_date,'from_date_anchor','M/d/yyyy');
+                      return false;" name="from_date_anchor" id="from_date_anchor" style="font-size: 11px; color: rgb(39, 64, 139);">Pick Date</a></td></tr><tr>
+              </tr><tr><td class="table_rows" style="padding-left:32px;" width="20%" nowrap="">To Date: (m/d/yyyy)</td><td style="color:red;font-family:Tahoma;font-size:10px;padding-left:20px;" width="80%">
+                      <input type="text" size="10" maxlength="10" name="to_date" style="color:#27408b">&nbsp;*&nbsp;&nbsp;
+                      <a href="#" onclick="form.to_date.value='';cal.select(document.forms['form'].to_date,'to_date_anchor','M/d/yyyy');
+                      return false;" name="to_date_anchor" id="to_date_anchor" style="font-size:11px;color:#27408b;">Pick Date</a></td></tr><tr>
+              </tr><tr><td class="table_rows" colspan="3" style="color:red;font-family:Tahoma;font-size:10px;" align="right">*&nbsp;required&nbsp;</td></tr>
+            </tbody></table>
+            <div style="position: absolute; visibility: visible; background-color: rgb(255, 255, 255); left: 619px; top: 205px;" id="mydiv" height="200"><table class="cpBorder" borderwidth="0" width="144" cellspacing="0" cellpadding="1" border="0">
+<tbody><tr><td align="CENTER">
+<center>
+<table borderwidth="0" width="144" cellspacing="0" cellpadding="0" border="0"><tbody><tr>
+<td class="cpMonthNavigation" width="22"><a class="cpMonthNavigation" href="javascript:CP_refreshCalendar(0,2,2021);">&lt;&lt;</a></td>
+<td class="cpMonthNavigation" width="100"><span class="cpMonthNavigation">March 2021</span></td>
+<td class="cpMonthNavigation" width="22"><a class="cpMonthNavigation" href="javascript:CP_refreshCalendar(0,4,2021);">&gt;&gt;</a></td>
+</tr></tbody></table>
+<table width="120" cellspacing="0" cellpadding="1" border="0" align="CENTER">
+<tbody><tr>
+<td class="cpDayColumnHeader" width="14%"><span class="cpDayColumnHeader">S</span></td>
+<td class="cpDayColumnHeader" width="14%"><span class="cpDayColumnHeader">M</span></td>
+<td class="cpDayColumnHeader" width="14%"><span class="cpDayColumnHeader">T</span></td>
+<td class="cpDayColumnHeader" width="14%"><span class="cpDayColumnHeader">W</span></td>
+<td class="cpDayColumnHeader" width="14%"><span class="cpDayColumnHeader">T</span></td>
+<td class="cpDayColumnHeader" width="14%"><span class="cpDayColumnHeader">F</span></td>
+<td class="cpDayColumnHeader" width="14%"><span class="cpDayColumnHeader">S</span></td>
+</tr>
+<tr>
+	<td class="cpOtherMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,2,28);CP_hideCalendar('0');" class="cpOtherMonthDate">28</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,1);CP_hideCalendar('0');" class="cpCurrentMonthDate">1</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,2);CP_hideCalendar('0');" class="cpCurrentMonthDate">2</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,3);CP_hideCalendar('0');" class="cpCurrentMonthDate">3</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,4);CP_hideCalendar('0');" class="cpCurrentMonthDate">4</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,5);CP_hideCalendar('0');" class="cpCurrentMonthDate">5</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,6);CP_hideCalendar('0');" class="cpCurrentMonthDate">6</a></td>
+</tr><tr>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,7);CP_hideCalendar('0');" class="cpCurrentMonthDate">7</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,8);CP_hideCalendar('0');" class="cpCurrentMonthDate">8</a></td>
+	<td class="cpCurrentDate"><a href="javascript:CP_tmpReturnFunction(2021,3,9);CP_hideCalendar('0');" class="cpCurrentDate">9</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,10);CP_hideCalendar('0');" class="cpCurrentMonthDate">10</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,11);CP_hideCalendar('0');" class="cpCurrentMonthDate">11</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,12);CP_hideCalendar('0');" class="cpCurrentMonthDate">12</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,13);CP_hideCalendar('0');" class="cpCurrentMonthDate">13</a></td>
+</tr><tr>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,14);CP_hideCalendar('0');" class="cpCurrentMonthDate">14</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,15);CP_hideCalendar('0');" class="cpCurrentMonthDate">15</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,16);CP_hideCalendar('0');" class="cpCurrentMonthDate">16</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,17);CP_hideCalendar('0');" class="cpCurrentMonthDate">17</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,18);CP_hideCalendar('0');" class="cpCurrentMonthDate">18</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,19);CP_hideCalendar('0');" class="cpCurrentMonthDate">19</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,20);CP_hideCalendar('0');" class="cpCurrentMonthDate">20</a></td>
+</tr><tr>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,21);CP_hideCalendar('0');" class="cpCurrentMonthDate">21</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,22);CP_hideCalendar('0');" class="cpCurrentMonthDate">22</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,23);CP_hideCalendar('0');" class="cpCurrentMonthDate">23</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,24);CP_hideCalendar('0');" class="cpCurrentMonthDate">24</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,25);CP_hideCalendar('0');" class="cpCurrentMonthDate">25</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,26);CP_hideCalendar('0');" class="cpCurrentMonthDate">26</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,27);CP_hideCalendar('0');" class="cpCurrentMonthDate">27</a></td>
+</tr><tr>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,28);CP_hideCalendar('0');" class="cpCurrentMonthDate">28</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,29);CP_hideCalendar('0');" class="cpCurrentMonthDate">29</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,30);CP_hideCalendar('0');" class="cpCurrentMonthDate">30</a></td>
+	<td class="cpCurrentMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,3,31);CP_hideCalendar('0');" class="cpCurrentMonthDate">31</a></td>
+	<td class="cpOtherMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,4,1);CP_hideCalendar('0');" class="cpOtherMonthDate">1</a></td>
+	<td class="cpOtherMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,4,2);CP_hideCalendar('0');" class="cpOtherMonthDate">2</a></td>
+	<td class="cpOtherMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,4,3);CP_hideCalendar('0');" class="cpOtherMonthDate">3</a></td>
+</tr><tr>
+	<td class="cpOtherMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,4,4);CP_hideCalendar('0');" class="cpOtherMonthDate">4</a></td>
+	<td class="cpOtherMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,4,5);CP_hideCalendar('0');" class="cpOtherMonthDate">5</a></td>
+	<td class="cpOtherMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,4,6);CP_hideCalendar('0');" class="cpOtherMonthDate">6</a></td>
+	<td class="cpOtherMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,4,7);CP_hideCalendar('0');" class="cpOtherMonthDate">7</a></td>
+	<td class="cpOtherMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,4,8);CP_hideCalendar('0');" class="cpOtherMonthDate">8</a></td>
+	<td class="cpOtherMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,4,9);CP_hideCalendar('0');" class="cpOtherMonthDate">9</a></td>
+	<td class="cpOtherMonthDate"><a href="javascript:CP_tmpReturnFunction(2021,4,10);CP_hideCalendar('0');" class="cpOtherMonthDate">10</a></td>
+</tr><tr>
+	<td colspan="7" class="cpTodayText" align="CENTER">
+		<a class="cpTodayText" href="javascript:CP_tmpReturnFunction('2021','3','9');CP_hideCalendar('0');">Today</a>
+		<br>
+	</td></tr></tbody></table></center></td></tr></tbody></table>
+</div>
+            <table width="60%" cellspacing="3" cellpadding="0" border="0" align="center">
+              <tbody><tr><td class="table_rows" valign="bottom" height="25">1.&nbsp;&nbsp;&nbsp;Export to CSV? (link to CSV file will be in the top right of
+                      the next page)</td></tr>
+              <tr><td class="table_rows" style="padding-left:15px;" nowrap="" align="left"><input type="radio" name="csv" value="1">&nbsp;Yes
+                      <input type="radio" name="csv" value="0" checked="">&nbsp;No</td></tr>
+              <tr><td class="table_rows" valign="bottom" height="25">2.&nbsp;&nbsp;&nbsp;Display connecting ip address information?
+                      </td></tr>
+              <tr><td class="table_rows" style="padding-left:15px;" nowrap="" align="left"><input type="radio" name="tmp_display_ip" value="1" checked="">&nbsp;Yes<input type="radio" name="tmp_display_ip" value="0">&nbsp;No</td></tr>
+              <tr><td height="10"></td></tr>
+            </tbody></table>
+            <table width="60%" cellspacing="3" cellpadding="0" border="0" align="center">
+              <tbody><tr><td width="30"><input type="image" name="submit" value="Edit Time" src="../images/buttons/next_button.png" align="middle"></td><td><a href="index.php"><img src="../images/buttons/cancel_button.png" border="0"></a></td></tr></tbody></table></form></td></tr>
+        <tr class="hide"><td class="misc_items" scope="row" colspan="2" valign="middle" height="4%" align="right">Powered by&nbsp;<a class="footer_links" href="http://httpd.apache.org/">Apache</a>&nbsp;±<a class="footer_links" href="http://mysql.org">&nbsp;MySql</a> 
+            ±<a class="footer_links" href="http://php.net">&nbsp;PHP</a>&nbsp;•<a class="footer_links" href="http://timeclock.sourceforge.net">&nbsp;PHP Timeclock&nbsp;1.04</a></td></tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+</body></html>

@@ -1,0 +1,362 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<link href="../css/default.css" media="screen" type="text/css" rel="stylesheet" />
+<link href="../css/print.css" media="print" type="text/css" rel="stylesheet" />
+<script src="../scripts/pnguin.js" language="javascript"></script>
+</head>
+<body>
+<table width="100%" cellspacing="1" cellpadding="0" border="0" class="header">
+  <tbody><tr><td align="left"><a href="../index.php"><img border="0" src="images/logos/phptimeclock.png" /></a></td>
+    <td valign="middle" align="right" scope="col" colspan="2"><a style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;" href="http://www.historychannel.com/tdih">February 1, 2021  </a></td></tr>
+</tbody></table>
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="topmain_row_color">
+  <tbody><tr>
+    <td width="10" valign="middle" align="left" style="padding-left:12px;"><img border="0" src="../images/icons/user_orange.png" /></td>
+    <td valign="middle" align="left" style="color:#000000;font-family:Tahoma;font-size:10pt;padding-left:8px;">logged in as: admin</td>
+    <td valign="middle" align="right"><img border="0" src="../images/icons/house.png" />  </td>
+    <td width="10" valign="middle" align="right"><a style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;" href="../index.php">
+        Home  </a></td>
+    <td width="23" valign="middle" align="right"><img border="0" src="../images/icons/bricks.png" />  </td>
+    <td width="10" valign="middle" align="right"><a style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;" href="../login.php">
+        Administration  </a></td>
+    <td width="23" valign="middle" align="right"><img border="0" src="../images/icons/report.png" />  </td>
+    <td width="10" valign="middle" align="right"><a style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;" href="../reports/index.php">
+        Reports  </a></td>
+    <td width="23" valign="middle" align="right"><img border="0" src="../images/icons/time.png" />  </td>
+    <td width="10" valign="middle" align="right"><a style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;" href="../punchclock/menu.php">Punchclock  </a></td>
+    <td width="20" valign="middle" align="right"><img border="0" src="../images/icons/arrow_rotate_clockwise.png" /> </td>
+    <td width="10" valign="middle" align="right"><a style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;" href="../logout.php">
+        Logout  </a></td></tr>
+</tbody></table>
+<title>PHP Timeclock 1.04 - Administration</title>
+<table width="100%" height="89%" cellspacing="1" cellpadding="0" border="0">
+  <tbody><tr valign="top">
+    <td width="180" align="left" scope="col" class="left_main">
+      <table width="100%" cellspacing="0" cellpadding="1" border="0" class="hide">
+        <tbody><tr><td height="11" class="left_rows"></td></tr>
+        <tr><td valign="middle" height="18" class="left_rows_headings">Users</td></tr>
+        <tr><td valign="middle" height="18" align="left" class="left_rows"><img alt="User Summary" src="../images/icons/user.png" />  
+                <a href="useradmin.php" class="admin_headings">User Summary</a></td></tr>
+        <tr><td valign="middle" height="18" align="left" class="left_rows"><img alt="Create New User" src="../images/icons/user_add.png" />  
+                <a href="usercreate.php" class="admin_headings">Create New User</a></td></tr>
+        <tr><td valign="middle" height="18" align="left" class="left_rows"><img alt="User Search" src="../images/icons/magnifier.png" />  
+                <a href="usersearch.php" class="admin_headings">User Search</a></td></tr>
+        <tr><td height="33" class="left_rows"></td></tr>
+        <tr><td valign="middle" height="18" class="left_rows_headings">Offices</td></tr>
+        <tr><td valign="middle" height="18" align="left" class="left_rows"><img alt="Office Summary" src="../images/icons/brick.png" />  
+                <a href="officeadmin.php" class="admin_headings">Office Summary</a></td></tr>
+        <tr><td valign="middle" height="18" align="left" class="left_rows"><img alt="Create New Office" src="../images/icons/brick_add.png" />  
+                <a href="officecreate.php" class="admin_headings">Create New Office</a></td></tr>
+        <tr><td height="33" class="left_rows"></td></tr>
+        <tr><td valign="middle" height="18" class="left_rows_headings">Groups</td></tr>
+        <tr><td valign="middle" height="18" align="left" class="left_rows"><img alt="Group Summary" src="../images/icons/group.png" />  
+                <a href="groupadmin.php" class="admin_headings">Group Summary</a></td></tr>
+        <tr><td valign="middle" height="18" align="left" class="left_rows"><img alt="Create New Group" src="../images/icons/group_add.png" />  
+                <a href="groupcreate.php" class="admin_headings">Create New Group</a></td></tr>
+        <tr><td height="33" class="left_rows"></td></tr>
+        <tr><td valign="middle" height="18" colspan="2" class="left_rows_headings">In/Out Status</td></tr>
+        <tr><td valign="middle" height="18" align="left" class="left_rows"><img alt="Status Summary" src="../images/icons/application.png" />
+                  <a href="statusadmin.php" class="admin_headings">Status Summary</a></td></tr>
+        <tr><td valign="middle" height="18" align="left" class="left_rows"><img alt="Create Status" src="../images/icons/application_add.png" />  
+                <a href="statuscreate.php" class="admin_headings">Create Status</a></td></tr>
+        <tr><td height="33" class="left_rows"></td></tr>
+        <tr><td valign="middle" height="18" colspan="2" class="left_rows_headings">Miscellaneous</td></tr>
+        <tr><td valign="middle" height="18" align="left" class="left_rows"><img alt="Add/Edit/Delete Time" src="../images/icons/clock.png" />
+                  <a href="timeadmin.php" class="admin_headings">Add/Edit/Delete Time</a></td></tr>
+        <tr><td valign="middle" height="18" align="left" class="left_rows"><img alt="Edit System Settings" src="../images/icons/application_edit.png" />
+                  <a href="sysedit.php" class="admin_headings">Edit System Settings</a></td></tr>
+        <tr><td valign="middle" height="18" align="left" class="left_rows"><img alt="Upgrade Database" src="../images/icons/database_go.png" />   <a href="dbupgrade.php" class="admin_headings">Upgrade Database</a></td></tr>
+      </tbody></table></td>
+    <td align="left" scope="col" class="right_main">
+      <table width="100%" height="100%" cellspacing="1" cellpadding="10" border="0">
+        <tbody><tr class="right_main_text">
+          <td valign="top">
+            <table width="100%" cellspacing="0" cellpadding="0" border="0">
+              <tbody><tr><th nowrap="nowrap" align="left" class="table_heading_no_color" colspan="3">System Settings</th></tr>
+              <tr><td width="10%" align="left" style="padding-left:4px;" class="table_rows" colspan="3">Listed below are the 
+                      settings that have been chosen within config.inc.php, the config file for PHP Timeclock.</td></tr>
+              <tr><td width="10%" height="40" align="left" style="padding-left:4px;color:#27408b;" class="table_rows"><b><u>VARIABLE</u></b></td>
+                  <td width="10%" align="left" style="color:#27408b;" class="table_rows"><b><u>VALUE</u></b></td>
+                  <td width="80%" align="left" style="padding-left:10px;color:#27408b;" class="table_rows"><b><u>DESCRIPTION</u></b></td></tr>
+              <tr><th nowrap="nowrap" align="left" class="table_heading_no_color" colspan="3">MySql DB Settings</th></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">db_hostname:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">localhost</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">This is the hostname for your 
+                      mysql server, default is <b>localhost</b>.</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">db_name:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">timeclock</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">This is the name of the mysql 
+                      database you created during the install.</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">db_username:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">Sn_network</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">This is the mysql username you 
+                      created during the install.</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">db_password:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">********</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">This is the mysql password for 
+                      the username you created during the install.</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">db_prefix:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows"></td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">This adds a prefix to the 
+                      tablenames in the database. This can be helpful if you have an existing mysql database that you would like to use with PHP 
+                      Timeclock. If you are unaware of what is meant by 'table prefix', then please leave this option as is. Default is to leave it 
+                      blank.</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">dbversion:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">1.4</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">This is the versioning number of 
+                      the current database for PHP Timeclock.</td></tr>
+              <tr><td nowrap="nowrap" colspan="3" style="border:solid #888888;border-width:0px 0px 1px 0px;"> </td></tr>
+              <tr><th nowrap="nowrap" align="left" class="table_heading_no_color" colspan="3">Passwords and Security</th></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">use_passwd:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">yes</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">This provides the option for the 
+                      users to input their password when individually punching in/out of the timeclock. Default is "<b>no</b>".</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">use_reports_password:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">no</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">If ALL users need access to ALL 
+                      the reports provided, then set this to "no". Default is "<b>no</b>".</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">restrict_ips:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">no</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Choose "yes" to restrict the ip 
+                      addresses that can connect to PHP Timeclock. If "yes" is chosen, you MUST input the allowed networks in the 
+                      allowed_networks array below. Otherwise, choosing "yes" here and leaving allowed_networks blank will cause PHP Timeclock 
+                      to reject everyone attempting to connect to it. Default is "<b>no</b>".</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">allowed_networks:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">view these via the 'Edit System Settings' link on the left.</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">These are the networks or ip 
+                      addresses you wish to allow to connect to PHP Timeclock. There is not a limit on how many networks or addresses that can be 
+                      included in this array. This will currently only work for ipv4 addresses, ipv6 may be supported in a future release. If 
+                      restrict_ips is set to "no", this option is ignored.</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">ip_logging:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">yes</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Enable the option to log the ip 
+                      addresses of the connecting computers when users punch-in/out, or when a time is manually added, edited, or deleted.
+                      Default is "<b>yes</b>".
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">disable_sysedit:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">no</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Choosing "yes" disables
+                      ALL access to the Edit System Settings page (sysedit.php). It can be re-enabled in config.inc.php. Default is "<b>no</b>".
+                 </td></tr>
+              <tr><td nowrap="nowrap" colspan="3" style="border:solid #888888;border-width:0px 0px 1px 0px;"> </td></tr>
+              <tr><th nowrap="nowrap" align="left" class="table_heading_no_color" colspan="3">Dates and Times</th></tr>
+              <tr><td width="10%" align="left" style="padding-left:4px;" class="table_rows" colspan="3">Choose the way dates and times are to be 
+                      displayed throughout the entire application:</td></tr>
+              <tr><td width="10%" valign="bottom" height="25" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">calendar_style:</td>
+                  <td width="10%" valign="bottom" bgcolor="#EFEFEF" align="left" class="table_rows">amer</td>
+                  <td width="80%" valign="bottom" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Default is "<b>amer</b>".
+                      </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">datefmt:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">n/j/Y</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Default is 
+                      "<b>n/j/y</b>".</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">js_datefmt:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">M/d/yyyy</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Default is 
+                      "<b>M/d/yy</b>".</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">tmp_datefmt:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">m/d/yyyy</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Default is 
+                      "<b>m/d/yy</b>".</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">timefmt:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">g:ia</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Default is "<b>g:i a</b>".
+                      </td></tr>
+              <tr><td nowrap="nowrap" colspan="3" style="border:solid #888888;border-width:0px 0px 1px 0px;"> </td></tr>
+              <tr><th nowrap="nowrap" align="left" class="table_heading_no_color" colspan="3">Reports Settings</th></tr>
+              <tr><td width="10%" align="left" style="padding-left:4px;" class="table_rows" colspan="3">Choose the way the reports are
+                      formatted <u>by default</u>. Most of these default settings can be changed when the reports are run.</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">round_time:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">0</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Choose how to round 
+                      the time worked within the reports for each user. This simply tells the report how to format the total hours worked for the 
+                      Hours Worked Report. Default is "<b>0</b>", meaning do not round.
+                      </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">paginate:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">yes</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Choose whether to paginate 
+                      the Hours Worked report or not. Setting this option to "yes" will print each user's time on their own separate page. 
+                      Default is "<b>yes</b>".</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">show_details:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">yes</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Choose whether to show the 
+                      punch-in/out details for each punch for each user on the Hours Worked report or not. Default is "<b>yes</b>".</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">report_start_time:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">00:00</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">These two variables, 
+                      report_start_time and report_end_time, are designed to work with the Hours Worked report. They are there to provide a starting 
+                      time to go along with the starting date, and an ending time to go along with the ending date for the dates specified when the report 
+                      is run. Default is "<b>00:00</b>" (12:00am). 12 hour and 24 hour formats are supported.</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">report_end_time:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">23:59</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Default is "<b>23:59</b>" 
+                      (11:59pm). 12 hour and 24 hour formats are supported.</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">username_dropdown_only:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">no</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Setting this variable to "yes"
+                      will display a single dropdown box containing usernames to choose from when running the reports. Setting this variable 
+                      to "no" will instead display a triple dropdown box containing offices, groups, and usernames to choose from when running the 
+                      reports. A single dropdown box works well if there are just a few usernames in the system, and a triple dropdown 
+                      works well if multiple offices and/or groups are in the system. Default is "<b>no</b>".</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">user_or_display:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">user</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Choose whether to print
+                      displaynames or usernames for each user when reports are run. Options for this variable are "user" and "display".
+                      Default is "<b>user</b>".</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">display_ip:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">yes</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Choose whether to include
+                      in the reports the ip addresses of the systems that connect to sign-in/out into PHP Timeclock or not. This option
+                      is useful for auditing purposes. The <b>ip_logging</b> option must be set to "<b>yes</b>" in order for this option to work as 
+                      expected. Default is "<b>yes</b>".</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">export_csv:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">no</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Choose "<b>yes</b>" to export 
+                    the reports to a comma delimited file (.csv). Default is "<b>no</b>".</td></tr>
+              <tr><td nowrap="nowrap" colspan="3" style="border:solid #888888;border-width:0px 0px 1px 0px;"> </td></tr>
+              <tr><th nowrap="nowrap" align="left" class="table_heading_no_color" colspan="3">Timezone Settings</th></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">use_client_tz:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">no</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Setting this option to "yes" 
+                      will display the punch-in/out times according to the timezone of the connecting computer, providing javascript is enabled in the 
+                      user's browser. Default is "<b>no</b>".
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">use_server_tz:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">no</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Setting this option to 
+                        "no" AND setting 'use_client_tz' to "no" will display the punch-in/out times according to your php.ini's date.timezone setting.  
+                        If using PHP 5.1+ then choose "no" and set date.timezone in your php.ini file. 
+                        Leaving date.timezone unset may cause PHP to choose the wrong timezone. 
+                        Otherwise setting this option to "yes" will display the punch-in/out times according to the timezone of the web server through date("Z"). 
+                        Default is "<b>no</b>".                  </td></tr>
+              <tr><td nowrap="nowrap" colspan="3" style="border:solid #888888;border-width:0px 0px 1px 0px;"> </td></tr>
+              <tr><th nowrap="nowrap" align="left" class="table_heading_no_color" colspan="3">Display Settings</th></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">color1:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">#EFEFEF</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">When times are displayed in PHP 
+                      Timeclock, they are displayed with these two alternating row colors. Default is "<b>#EFEFEF</b>".
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">color2:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">#FBFBFB</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Default is "<b>#FBFBFB</b>".
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">display_current_users:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">no</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Display only the current day's 
+                      activity instead of the last entry from each user. Default is "<b>no</b>".
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">show_display_name:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">no</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Show a user's Display Name 
+                      instead of their username on the main page. Default is "<b>no</b>".
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">display_office:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">all</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Display only a certain office on 
+                      the main page of the application, instead of all the users. Default is "<b>all</b>".
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">display_group:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">all</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Display only a certain
+                      group on the main page of the application, instead of a particular office, or all the users. If "all" is chosen for the
+                      office, then you can choose any group in the list. This is there for if you have 2 or more groups with the same name, but with
+                      each having a different parent office. In this case, if you wanted to display all members of the groups with the same name, you
+                      could do this without having to choose an office. Default is "<b>all</b>".</td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">display_office_name:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">no</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Display a column on the main 
+                      page that shows the office each user is affiliated with. Default is "<b>no</b>".
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">display_group_name:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">no</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Display a column on the main 
+                      page that shows the group each user is affiliated with. Default is "<b>no</b>".
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">display_weather:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">no</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">To display local weather info on 
+                      the left side of the application just below the submit button, set this to "yes". Default is "<b>no</b>".
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">weather_units:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">Celsius</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Display weather in US or metric measurements. Options are Fahrenheit or
+                  Celsius. Default is Celsius".
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">metar:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">CYYT</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Sets the ICAO (International 
+                      Civil Aviation Organization) for your local airport. This is the unique four letter international ID for the airport. METAR 
+                      reports are created at roughly 4500 airports from around the world, so you probably live near one of them. The airports make a 
+                      report once or twice an hour, and these reports are stored at the National Weather Service and are publically available via HTTP 
+                      or FTP. Visit <a style="text-decoration:underline;" class="admin_headings" href="https://pilotweb.nas.faa.gov/qryhtml/icao/"> 
+                      https://pilotweb.nas.faa.gov/qryhtml/icao/</a> to find a corresponding ICAO near you. If 'display_weather' is set 
+                      to "no", this option is ignored. If 'display_weather' is set to "yes", you MUST provide an ICAO here.
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">city:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">St. Johns, NL, Canada</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">This is the city and state (or 
+                      can be city and country) of the airport for the ICAO used above. If 'display_weather' is set to "no", this option is ignored.
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">links:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">none
+                  </td><td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">These are links to 
+                            websites, other web-based applications, etc., that you wish to display in the topleft of the application just below the 
+                            logo. Set it to "none" to ignore this option. 
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">display_links:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">none
+                  </td><td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">These are the display names 
+                            for the links chosen above. The number of display names MUST equal the number of links you have chosen above. If the 'links' 
+                            option above is set to "none", this option is ignored.
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">logo:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">images/logos/phptimeclock.png</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">This is a logo or graphic 
+                      displayed in the top left of each page. Set it to "none" to ignore this option.
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">refresh:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">300</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Sets the refresh rate (in 
+                      seconds) for the application. If PHP Timeclock is kept open, it will refresh this number of seconds to display the most current 
+                      information. Set it to "none" to ignore this option. Default is <b>300</b>.
+                  </td></tr>
+              <tr><td nowrap="nowrap" colspan="3" style="border:solid #888888;border-width:0px 0px 1px 0px;"> </td></tr>
+              <tr><th nowrap="nowrap" align="left" class="table_heading_no_color" colspan="3">Miscellaneous Settings</th></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">email:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">none</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">This is an email address to 
+                      display in the footer. Set it to "none" to ignore this option.
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">date_link:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">http://www.historychannel.com/tdih</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">If your users click on the 
+                      displayed date in the top right of the application, they will be taken to this website. Set it to "none" to ignore this option. 
+                      Default is 'This Day in History', <a style="text-decoration:underline;" class="admin_headings" href="http://www.historychannel.com/tdih"><b>http://www.historychannel.com/tdih</b></a>.
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">app_name:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">PHP Timeclock</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Sets the first half of the 
+                      'title'.
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:4px;" class="table_rows">app_version:</td>
+                  <td width="10%" valign="top" bgcolor="#FBFBFB" align="left" class="table_rows">1.04</td>
+                  <td width="80%" valign="top" bgcolor="#FBFBFB" align="left" style="padding-left:10px;" class="table_rows">Sets the second half of the 
+                      'title'.
+                  </td></tr>
+              <tr><td width="10%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:4px;" class="table_rows">title:</td>
+                  <td width="10%" valign="top" bgcolor="#EFEFEF" align="left" class="table_rows">PHP Timeclock 1.04</td>
+                  <td width="80%" valign="top" bgcolor="#EFEFEF" align="left" style="padding-left:10px;" class="table_rows">Sets the title in the header. 
+                      This is what is displayed in the title bar of your web browser, and it is what the page will be named by default when you make a 
+                      "favorite" or "bookmark" in your web browser.
+                  </td></tr>
+            </tbody></table>
+        </td></tr><tr class="hide"><td valign="middle" height="4%" align="right" colspan="2" scope="row" class="misc_items">Powered by <a href="http://httpd.apache.org/" class="footer_links">Apache</a> ±<a href="http://mysql.org" class="footer_links"> MySql</a> 
+            ±<a href="http://php.net" class="footer_links"> PHP</a> •<a href="http://timeclock.sourceforge.net" class="footer_links"> PHP Timeclock 1.04</a></td></tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+</body></html>

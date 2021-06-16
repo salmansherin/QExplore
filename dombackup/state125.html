@@ -1,0 +1,285 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>PHP Timeclock 1.04 - Hours Worked Report</title>
+
+
+<link href="../css/default.css" media="screen" type="text/css" rel="stylesheet" />
+<link href="../css/print.css" media="print" type="text/css" rel="stylesheet" />
+<script src="../scripts/CalendarPopup.js" language="javascript"></script>
+<script language="javascript">document.write(getCalendarStyles());</script><style>
+.cpYearNavigation,.cpMonthNavigation { background-color:#cdc0b0; text-align:center; vertical-align:center; text-decoration:none; color:#000000; font-family:Tahoma; border-width:0px 0px 1px 0px; border-style:solid; border-color: #748771; }
+.cpDayColumnHeader, .cpYearNavigation,.cpMonthNavigation,.cpCurrentMonthDate,.cpCurrentMonthDateDisabled,.cpOtherMonthDate,.cpOtherMonthDateDisabled,.cpCurrentDate,.cpCurrentDateDisabled,.cpTodayText,.cpTodayTextDisabled,.cpText { font-family:Tahoma; font-size:11px; }
+TD.cpDayColumnHeader { text-align:right; border:solid thin #C0C0C0;border-width:0px 0px 1px 0px; }
+.cpCurrentMonthDate, .cpOtherMonthDate, .cpCurrentDate  { text-align:right; text-decoration:none; }
+.cpCurrentMonthDateDisabled, .cpOtherMonthDateDisabled, .cpCurrentDateDisabled { color:#D0D0D0; text-align:right; text-decoration:line-through; }
+.cpCurrentMonthDate, .cpCurrentDate { color:#000000; }
+.cpOtherMonthDate { color:#808080; }
+TD.cpCurrentDate { color:white; background-color: #eeeeee; border-width:1px; border:solid thin #748771; }
+TD.cpCurrentDateDisabled { border-width:1px; border:solid thin #FFAAAA; }
+TD.cpTodayText, TD.cpTodayTextDisabled { border:solid thin #C0C0C0; border-width:1px 0px 0px 0px;}
+A.cpTodayText, SPAN.cpTodayTextDisabled { height:20px; }
+A.cpTodayText { color:black; }
+.cpTodayTextDisabled { color:#D0D0D0; }
+.cpBorder { border:solid thin #748771;border-width:1px 1px 1px 1px; }
+</style>
+
+<script language="javascript">var cal = new CalendarPopup('mydiv');</script>
+<script src="../scripts/pnguin.js" language="javascript"></script>
+<script language="JavaScript">
+
+    function office_names() {
+        var select = document.form.office_name;
+        var groups_select = document.form.group_name;
+        var users_select = document.form.user_name;
+        select.options[0] = new Option("All");
+        select.options[0].value = 'All';
+        groups_select.options[0] = new Option("All");
+        groups_select.options[0].value = 'All';
+        users_select.options[0] = new Option("All");
+        users_select.options[0].value = 'All';
+
+        select.options[1] = new Option("Alanna");
+select.options[1].value = "Alanna";
+select.options[2] = new Option("quest");
+select.options[2].value = "quest";
+    }
+
+
+    function group_names() {
+        var offices_select = document.form.office_name;
+        var groups_select = document.form.group_name;
+        var users_select = document.form.user_name;
+        groups_select.options[0] = new Option("All");
+        groups_select.options[0].value = 'All';
+        users_select.options[0] = new Option("All");
+        users_select.options[0].value = 'All';
+
+                if (offices_select.options[offices_select.selectedIndex].text == "Alanna") {
+            groups_select.options[0] = new Option("All");
+groups_select.options[0].value = 'All';
+        }
+                if (offices_select.options[offices_select.selectedIndex].text == "quest") {
+            groups_select.options[0] = new Option("All");
+groups_select.options[0].value = 'All';
+groups_select.options[1] = new Option("Chess");
+groups_select.options[1].value = "Chess";
+groups_select.options[2] = new Option("UAV");
+groups_select.options[2].value = "UAV";
+        }
+                if (users_select.options[users_select.selectedIndex].value != 'All') {
+            users_select.length = 0;
+        }
+        if (groups_select.options[groups_select.selectedIndex].value != 'All') {
+            groups_select.length = 0;
+        }
+        if (offices_select.options[offices_select.selectedIndex].value == 'All') {
+            groups_select.options[0] = new Option("All");
+groups_select.options[0].value = 'All';
+        }
+        if (groups_select.options[groups_select.selectedIndex].value == 'All') {
+            users_select.options[0] = new Option("All");
+users_select.options[0].value = 'All';
+        }
+    }
+
+
+    function user_names() {
+        var offices_select = document.form.office_name;
+        var groups_select = document.form.group_name;
+        var users_select = document.form.user_name;
+        users_select.options[0] = new Option("All");
+        users_select.options[0].value = 'All';
+
+        if (offices_select.options[offices_select.selectedIndex].value != 'All') {
+            users_select.length = 0;
+        }
+
+                if (offices_select.options[offices_select.selectedIndex].text == "Alanna") {
+                    }
+                if (offices_select.options[offices_select.selectedIndex].text == "quest") {
+            
+            if (groups_select.options[groups_select.selectedIndex].text == "Chess") {
+                users_select.options[0] = new Option("All");
+users_select.options[0].value = 'All';
+            }
+            
+            if (groups_select.options[groups_select.selectedIndex].text == "UAV") {
+                users_select.options[0] = new Option("All");
+users_select.options[0].value = 'All';
+users_select.options[1] = new Option("salmansherin");
+users_select.options[1].value = "salmansherin";
+            }
+                    }
+                if (groups_select.options[groups_select.selectedIndex].value == 'All') {
+            users_select.options[0] = new Option("All");
+users_select.options[0].value = 'All';
+        }
+    }
+
+</script>
+</head>
+<body onload="office_names();">
+<table width="100%" cellspacing="1" cellpadding="0" border="0" class="header">
+  <tbody><tr><td align="left"><a href="../index.php"><img border="0" src="images/logos/phptimeclock.png" /></a></td>
+    <td valign="middle" align="right" scope="col" colspan="2"><a style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;" href="http://www.historychannel.com/tdih">February 1, 2021  </a></td></tr>
+</tbody></table>
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="topmain_row_color">
+  <tbody><tr>
+    <td valign="middle" align="right"><img border="0" src="../images/icons/house.png" />  </td>
+    <td width="10" valign="middle" align="right"><a style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;" href="../index.php">
+        Home  </a></td>
+    <td width="23" valign="middle" align="right"><img border="0" src="../images/icons/bricks.png" />  </td>
+    <td width="10" valign="middle" align="right"><a style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;" href="../login.php">
+        Administration  </a></td>
+    <td width="23" valign="middle" align="right"><img border="0" src="../images/icons/report.png" />  </td>
+    <td width="10" valign="middle" align="right"><a style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;" href="index.php">
+        Reports  </a></td>
+    <td width="23" valign="middle" align="right"><img border="0" src="../images/icons/time.png" />  </td>
+    <td width="10" valign="middle" align="right"><a style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;" href="../punchclock/menu.php">Punchclock  </a></td>
+</tr></tbody></table>
+<table width="100%" height="89%" cellspacing="1" cellpadding="0" border="0">
+  <tbody><tr valign="top">
+    <td>
+      <table width="100%" height="100%" cellspacing="1" cellpadding="10" border="0">
+        <tbody><tr class="right_main_text">
+          <td valign="top">
+            <br />
+            <form onsubmit="return isFromOrToDate();" method="post" action="/timeclock/reports/total_hours.php" name="form">
+            <table width="60%" cellspacing="0" cellpadding="3" border="0" align="center" class="table_border">
+              <tbody><tr>
+                <th nowrap="nowrap" colspan="3" halign="left" class="rightside_heading"><img src="../images/icons/report.png" />   
+                    Hours Worked Report</th></tr>
+              <tr><td height="15"></td></tr>
+              <input type="hidden" value="M/d/yyyy" name="date_format" />
+              <tr><td width="20%" nowrap="nowrap" height="25" style="padding-left:32px;" class="table_rows">Choose Office:</td><td width="80%" style="color:red;font-family:Tahoma;font-size:10px;padding-left:20px;" colspan="2">
+                      <select onchange="group_names();" name="office_name">
+                      <option value="All">All</option><option value="Alanna">Alanna</option><option value="quest">quest</option></select></td></tr>
+              <tr><td width="20%" nowrap="nowrap" height="25" style="padding-left:32px;" class="table_rows">Choose Group:</td><td width="80%" style="color:red;font-family:Tahoma;font-size:10px;padding-left:20px;" colspan="2">
+                      <select onchange="user_names();" name="group_name">
+                      <option value="All">All</option></select></td></tr>
+              <tr><td width="20%" nowrap="nowrap" height="25" style="padding-left:32px;" class="table_rows">Choose Username:</td><td width="80%" style="color:red;font-family:Tahoma;font-size:10px;padding-left:20px;" colspan="2">
+                      <select name="user_name">
+                      <option value="All">All</option></select></td></tr>
+              <tr><td width="20%" nowrap="nowrap" style="padding-left:32px;" class="table_rows">From Date: (m/d/yyyy)</td><td width="80%" style="color:red;font-family:Tahoma;font-size:10px;padding-left:20px;">
+                      <input type="text" style="color:#27408b" name="from_date" maxlength="10" size="10" /> *  
+                      <a style="font-size:11px;color:#27408b;" id="from_date_anchor" name="from_date_anchor" onclick="form.from_date.value='';cal.select(document.forms['form'].from_date,'from_date_anchor','M/d/yyyy');
+                      return false;" href="#">Pick Date</a></td></tr><tr>
+              </tr><tr><td width="20%" nowrap="nowrap" style="padding-left:32px;" class="table_rows">To Date: (m/d/yyyy)</td><td width="80%" style="color:red;font-family:Tahoma;font-size:10px;padding-left:20px;">
+                      <input type="text" style="color:#27408b" name="to_date" maxlength="10" size="10" /> *  
+                      <a style="font-size:11px;color:#27408b;" id="to_date_anchor" name="to_date_anchor" onclick="form.to_date.value='';cal.select(document.forms['form'].to_date,'to_date_anchor','M/d/yyyy');
+                      return false;" href="#">Pick Date</a></td></tr><tr>
+              </tr><tr><td align="right" style="color:red;font-family:Tahoma;font-size:10px;" colspan="3" class="table_rows">* required </td></tr>
+            </tbody></table>
+            <div height="200" id="mydiv" style="position: absolute; visibility: visible; background-color: rgb(255, 255, 255); left: 556px; top: 194px;"><table width="144" cellspacing="0" cellpadding="1" border="0" borderwidth="0" class="cpBorder">
+<tbody><tr><td align="CENTER">
+<center>
+<table width="144" cellspacing="0" cellpadding="0" border="0" borderwidth="0"><tbody><tr>
+<td width="22" class="cpMonthNavigation"><a href="javascript:CP_refreshCalendar(0,2,2021);" class="cpMonthNavigation">&lt;&lt;</a></td>
+<td width="100" class="cpMonthNavigation"><span class="cpMonthNavigation">March 2021</span></td>
+<td width="22" class="cpMonthNavigation"><a href="javascript:CP_refreshCalendar(0,4,2021);" class="cpMonthNavigation">&gt;&gt;</a></td>
+</tr></tbody></table>
+<table width="120" cellspacing="0" cellpadding="1" border="0" align="CENTER">
+<tbody><tr>
+<td width="14%" class="cpDayColumnHeader"><span class="cpDayColumnHeader">S</span></td>
+<td width="14%" class="cpDayColumnHeader"><span class="cpDayColumnHeader">M</span></td>
+<td width="14%" class="cpDayColumnHeader"><span class="cpDayColumnHeader">T</span></td>
+<td width="14%" class="cpDayColumnHeader"><span class="cpDayColumnHeader">W</span></td>
+<td width="14%" class="cpDayColumnHeader"><span class="cpDayColumnHeader">T</span></td>
+<td width="14%" class="cpDayColumnHeader"><span class="cpDayColumnHeader">F</span></td>
+<td width="14%" class="cpDayColumnHeader"><span class="cpDayColumnHeader">S</span></td>
+</tr>
+<tr>
+	<td class="cpOtherMonthDate"><a class="cpOtherMonthDate" href="javascript:CP_tmpReturnFunction(2021,2,28);CP_hideCalendar('0');">28</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,1);CP_hideCalendar('0');">1</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,2);CP_hideCalendar('0');">2</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,3);CP_hideCalendar('0');">3</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,4);CP_hideCalendar('0');">4</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,5);CP_hideCalendar('0');">5</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,6);CP_hideCalendar('0');">6</a></td>
+</tr><tr>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,7);CP_hideCalendar('0');">7</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,8);CP_hideCalendar('0');">8</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,9);CP_hideCalendar('0');">9</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,10);CP_hideCalendar('0');">10</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,11);CP_hideCalendar('0');">11</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,12);CP_hideCalendar('0');">12</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,13);CP_hideCalendar('0');">13</a></td>
+</tr><tr>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,14);CP_hideCalendar('0');">14</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,15);CP_hideCalendar('0');">15</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,16);CP_hideCalendar('0');">16</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,17);CP_hideCalendar('0');">17</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,18);CP_hideCalendar('0');">18</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,19);CP_hideCalendar('0');">19</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,20);CP_hideCalendar('0');">20</a></td>
+</tr><tr>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,21);CP_hideCalendar('0');">21</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,22);CP_hideCalendar('0');">22</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,23);CP_hideCalendar('0');">23</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,24);CP_hideCalendar('0');">24</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,25);CP_hideCalendar('0');">25</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,26);CP_hideCalendar('0');">26</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,27);CP_hideCalendar('0');">27</a></td>
+</tr><tr>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,28);CP_hideCalendar('0');">28</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,29);CP_hideCalendar('0');">29</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,30);CP_hideCalendar('0');">30</a></td>
+	<td class="cpCurrentMonthDate"><a class="cpCurrentMonthDate" href="javascript:CP_tmpReturnFunction(2021,3,31);CP_hideCalendar('0');">31</a></td>
+	<td class="cpOtherMonthDate"><a class="cpOtherMonthDate" href="javascript:CP_tmpReturnFunction(2021,4,1);CP_hideCalendar('0');">1</a></td>
+	<td class="cpOtherMonthDate"><a class="cpOtherMonthDate" href="javascript:CP_tmpReturnFunction(2021,4,2);CP_hideCalendar('0');">2</a></td>
+	<td class="cpOtherMonthDate"><a class="cpOtherMonthDate" href="javascript:CP_tmpReturnFunction(2021,4,3);CP_hideCalendar('0');">3</a></td>
+</tr><tr>
+	<td class="cpOtherMonthDate"><a class="cpOtherMonthDate" href="javascript:CP_tmpReturnFunction(2021,4,4);CP_hideCalendar('0');">4</a></td>
+	<td class="cpOtherMonthDate"><a class="cpOtherMonthDate" href="javascript:CP_tmpReturnFunction(2021,4,5);CP_hideCalendar('0');">5</a></td>
+	<td class="cpOtherMonthDate"><a class="cpOtherMonthDate" href="javascript:CP_tmpReturnFunction(2021,4,6);CP_hideCalendar('0');">6</a></td>
+	<td class="cpOtherMonthDate"><a class="cpOtherMonthDate" href="javascript:CP_tmpReturnFunction(2021,4,7);CP_hideCalendar('0');">7</a></td>
+	<td class="cpOtherMonthDate"><a class="cpOtherMonthDate" href="javascript:CP_tmpReturnFunction(2021,4,8);CP_hideCalendar('0');">8</a></td>
+	<td class="cpOtherMonthDate"><a class="cpOtherMonthDate" href="javascript:CP_tmpReturnFunction(2021,4,9);CP_hideCalendar('0');">9</a></td>
+	<td class="cpOtherMonthDate"><a class="cpOtherMonthDate" href="javascript:CP_tmpReturnFunction(2021,4,10);CP_hideCalendar('0');">10</a></td>
+</tr><tr>
+	<td align="CENTER" class="cpTodayText" colspan="7">
+		<a href="javascript:CP_tmpReturnFunction('2021','2','1');CP_hideCalendar('0');" class="cpTodayText">Today</a>
+		<br />
+	</td></tr></tbody></table></center></td></tr></tbody></table>
+</div>
+            <table width="60%" cellspacing="3" cellpadding="0" border="0" align="center">
+              <tbody><tr><td valign="bottom" height="25" class="table_rows">1.   Export to CSV? (link to CSV file will be in the top right of
+                      the next page)</td></tr>
+              <tr><td nowrap="nowrap" align="left" style="padding-left:15px;" class="table_rows"><input type="radio" value="1" name="csv" /> Yes
+                      <input type="radio" checked="checked" value="0" name="csv" /> No</td></tr>
+              <tr><td valign="bottom" height="25" class="table_rows">2.   Paginate this report so each user's time is printed
+                      on a separate page?</td></tr>
+              <tr><td nowrap="nowrap" align="left" style="padding-left:15px;" class="table_rows"><input type="radio" checked="checked" value="1" name="tmp_paginate" /> Yes
+                      <input type="radio" value="0" name="tmp_paginate" /> No</td></tr>
+              <tr><td valign="bottom" height="25" class="table_rows">3.   Show punch-in/out details?</td></tr>
+              <tr><td nowrap="nowrap" align="left" style="padding-left:15px;" class="table_rows"><input type="radio" onfocus="javascript:form.tmp_display_ip[0].disabled=false;form.tmp_display_ip[1].disabled=false;" checked="checked" value="1" name="tmp_show_details" /> Yes <input type="radio" onfocus="javascript:form.tmp_display_ip[0].disabled=true;
+                      form.tmp_display_ip[1].disabled=true;" value="0" name="tmp_show_details" /> No</td></tr>
+              <tr><td valign="bottom" height="25" class="table_rows">4.   Display connecting ip address information?
+                      (only available if "Show punch-in/out details?" is set to "Yes".)</td></tr>
+              <tr><td nowrap="nowrap" align="left" style="padding-left:15px;" class="table_rows"><input type="radio" checked="checked" value="1" name="tmp_display_ip" /> Yes <input type="radio" value="0" name="tmp_display_ip" /> No</td></tr>
+              <tr><td valign="bottom" height="25" class="table_rows" colspan="2">5.   Round each user's time?</td></tr>
+              <tr><td nowrap="nowrap" align="left" style="padding-left:15px;" class="table_rows"><input type="radio" value="1" name="tmp_round_time" /> To the
+                      nearest 5 minutes (1/12th of an hour)</td></tr>
+              <tr><td nowrap="nowrap" align="left" style="padding-left:15px;" class="table_rows"><input type="radio" value="2" name="tmp_round_time" /> To
+                      the nearest 10 minutes (1/6th of an hour)</td></tr>
+              <tr><td nowrap="nowrap" align="left" style="padding-left:15px;" class="table_rows"><input type="radio" value="3" name="tmp_round_time" /> To
+                      the nearest 15 minutes (1/4th of an hour)</td></tr>
+              <tr><td nowrap="nowrap" align="left" style="padding-left:15px;" class="table_rows"><input type="radio" value="4" name="tmp_round_time" /> To
+                      the nearest 20 minutes (1/3rd of an hour)</td></tr>
+              <tr><td nowrap="nowrap" align="left" style="padding-left:15px;" class="table_rows"><input type="radio" value="5" name="tmp_round_time" /> To
+                      the nearest 30 minutes (1/2 of an hour)</td></tr>
+              <tr><td nowrap="nowrap" align="left" style="padding-left:15px;" class="table_rows"><input type="radio" checked="checked" value="0" name="tmp_round_time" /> Do
+                      not round</td></tr>
+              <tr><td height="10"></td></tr>
+            </tbody></table>
+            <table width="60%" cellspacing="3" cellpadding="0" border="0" align="center">
+              <tbody><tr><td width="30"><input type="image" align="middle" src="../images/buttons/next_button.png" value="Edit Time" name="submit" /></td><td><a href="index.php"><img border="0" src="../images/buttons/cancel_button.png" /></a></td></tr></tbody></table></form></td></tr>
+        <tr class="hide"><td valign="middle" height="4%" align="right" colspan="2" scope="row" class="misc_items">Powered by <a href="http://httpd.apache.org/" class="footer_links">Apache</a> ±<a href="http://mysql.org" class="footer_links"> MySql</a> 
+            ±<a href="http://php.net" class="footer_links"> PHP</a> •<a href="http://timeclock.sourceforge.net" class="footer_links"> PHP Timeclock 1.04</a></td></tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+</body></html>
