@@ -1,0 +1,399 @@
+<html lang="en" class="svg js"><head><style type="text/css">.truste_caIcon_display {display: inline !important;}</style><style type="text/css">.truste_cursor_pointer {cursor: pointer;}.truste_border_none {border: none;}</style>
+    <meta charset="utf-8">
+    <!--[if IE ]>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Language" content="en">
+
+    <title>MySQL :: Developer Zone</title>
+    <link rel="stylesheet" media="all" href="https://labs.mysql.com/common/css/main-20220311.min.css">
+            <link rel="stylesheet" media="all" href="https://labs.mysql.com/common/css/page-20220311.min.css">
+    
+    
+    <link rel="stylesheet" media="print" href="https://labs.mysql.com/common/css/print-20220311.min.css">
+
+    
+    
+    
+    
+    
+    <link rel="shortcut icon" href="https://labs.mysql.com/common/themes/sakila/favicon.ico">
+    <script type="text/javascript" async="" src="https://www.oracle.com/asset/web/analytics/infinity_common.js"></script><script async="async" type="text/javascript" src="https://consent.truste.com/notice?domain=oracle.com&amp;c=teconsent&amp;js=bb&amp;noticeType=bb&amp;text=true&amp;cdn=1&amp;pcookie&amp;gtm=1" crossorigin="" id="truste_0.6400138061667946"></script>
+    <script src="https://www.oracle.com/assets/truste-oraclelib.js"></script>
+    <script>(function(H){ H.className=H.className.replace(/\bno-js\b/,'js') })(document.documentElement)</script>
+    <script src="https://labs.mysql.com/common/js/site-20220331.min.js"></script><script async="async" type="text/javascript" crossorigin="" importance="high" src="https://consent.trustarc.com/asset/notice.js/v/v1.7-458"></script>
+
+    
+    
+    <!--[if lt IE 9]>
+        <script src="https://labs.mysql.com/common/js/polyfills/html5shiv-printshiv-3.7.2.min.js"></script>
+        <script src="https://labs.mysql.com/common/js/polyfills/respond-1.4.2.min.js"></script>
+    <![endif]-->
+        <script type="text/javascript" src="https://c.oracleinfinity.io/acs/account/wh3g12c3gg/js/mysql/analytics-production.js" async="true" defer="true"></script><script type="text/javascript" src="https://c.oracleinfinity.io/acs/common/js/1.3.43/common.js" async="true" defer="true"></script><script type="text/javascript" src="https://c.oracleinfinity.io/acs/account/wh3g12c3gg/js/mysql/analytics-production/analytics.js" async="true" defer="true"></script></head>
+
+<body class="no-sidebar full-page dev" style="padding-top: 0px;">
+<a class="skip-main" href="#main">Skip to Main Content</a>
+<div class="page-wrapper">
+    <header>
+
+                        <a href="https://dev.mysql.com/" aria-label="MySQL Home" title="MySQL" id="l1-home-link"></a>
+        
+        <div id="l1-nav-container">
+            <div id="l1-line1">
+                <div id="l1-lhs">
+                    <div id="l1-slogan">
+                        The world's most popular open source database
+                    </div>
+                    <div id="l1-search-box">
+                        <form id="l1-search-form" method="get" action="https://www.oracle.com/search/results">
+                        <input type="hidden" name="cat" value="mysql">
+                        <input type="hidden" name="Ntk" value="SI-ALL5">
+                        <input id="l1-search-input" type="search" class="icon-search" placeholder="Search" aria-label="Search" name="Ntt">
+                        </form>
+                    </div>
+                    <div id="l1-auth-links">
+                        <nav aria-label="Contact/Login Navigation" role="navigation">
+                            <a href="https://www.mysql.com/about/contact/"><b>Contact MySQL</b></a>
+                            <span id="l1-contact-separator">&nbsp;|&nbsp;</span>
+                            <span id="l1-contact-separator-br"><br></span>
+                                                             <a href="https://dev.mysql.com/auth/login/?dest=https%3A%2F%2Fdev.mysql.com%2F">Login</a> &nbsp;|&nbsp;
+                                 <a href="https://dev.mysql.com/auth/register/">Register</a>
+                                                    </nav>
+                    </div>
+                </div>
+            </div>
+            <div id="l1-line2">
+                <nav aria-label="Primary Navigation" role="navigation">
+                    <ul id="l1-nav">
+                        <li>
+                            <a href="https://www.mysql.com/"><!-- <span class="icon-sakila"></span>  -->MySQL.com</a>
+                        </li><li>
+                            <a href="https://www.mysql.com/downloads/"><!-- <span class="icon-download-thin"></span>  -->Downloads</a>
+                        </li><li>
+                            <a href="/doc/"><!-- <span class="icon-books"></span>  -->Documentation</a>
+                        </li><li class="active">
+                            <a href="/"><!-- <span class="icon-code"></span>  -->Developer Zone</a>
+                        </li>                    </ul>
+                </nav>
+                <div class="social-icons">
+                    <nav aria-label="Social Navigation" role="navigation">
+                        <a aria-label="Join us on Facebook" title="Join us on Facebook" href="http://www.facebook.com/mysql"><span class="icon-facebook"></span></a>
+                        <a aria-label="Follow us on Twitter" title="Follow us on Twitter" href="https://twitter.com/mysql"><span class="icon-twitter"></span></a>
+                        <a aria-label="Follow us on LinkedIn" title="Follow us on LinkedIn" href="https://www.linkedin.com/company/mysql"><span class="icon-linkedin"></span></a>
+                        <a aria-label="Visit our YouTube channel" title="Visit our YouTube channel" href="http://www.youtube.com/mysqlchannel"><span class="icon-youtube"></span></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id="sub-header">
+            <div id="l2-nav-container">
+                <div id="l2-nav-toggle">
+                    <span class="icon-three-bars"></span>
+                </div>
+                                                                                                                            <a class="button nav-button-3" href="/doc/"><span class="icon-books"></span> Documentation</a>
+                                                                                                <a class="button nav-button-2" href="https://www.mysql.com/downloads/"><span class="icon-download-thin"></span> Downloads</a>
+                                                                                                <a class="button nav-button-1" href="https://www.mysql.com/"><span class="icon-sakila"></span> MySQL.com</a>
+                                                                        <div id="l2-search-toggle">
+                    <span class="icon-search"></span>
+                </div>
+                <div id="l2-site-icon">
+                                                                                                                                                                                                                                        <span class="icon-code"></span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                <div id="l1-section-title">
+                    <span id="l1-section-label">
+                        <a href="/">Developer Zone</a>
+                    </span>
+                </div>
+                <nav aria-label="Secondary Navigation" role="navigation">
+                    
+
+<ul id="l2-nav">
+        	<li class=""><a href="https://forums.mysql.com/">Forums</a>
+    			</li>
+	        	<li class=""><a href="https://bugs.mysql.com/">Bugs</a>
+    			</li>
+	        	<li class=""><a href="/worklog/">Worklog</a>
+    			</li>
+	        	<li class=""><a href="https://labs.mysql.com/">Labs</a>
+    			</li>
+	        	<li class=""><a href="https://planet.mysql.com/">Planet MySQL</a>
+    			</li>
+	        	<li class=""><a href="https://www.mysql.com/news-and-events/web-seminars/">News and Events</a>
+    			</li>
+	        	<li class=""><a href="/community/">Community</a>
+    			</li>
+	        	<li class=" last"><a href="/blog-archive/">Blog Archive</a>
+    			</li>
+	                        <li class="other-section"><a href="https://www.mysql.com/">MySQL.com</a></li>
+                            <li class="other-section"><a href="https://www.mysql.com/downloads/">Downloads</a></li>
+                            <li class="other-section"><a href="/doc/">Documentation</a></li>
+                        </ul>
+                </nav>
+            </div>
+            <div id="l3-search-container"></div>
+            <div id="top-orange"><span id="section-nav">Section Menu: &nbsp; </span></div>
+        </div>
+    </header>
+        <div id="page">
+                        <div role="main" id="main" tabindex="-1">
+
+            
+                
+<div id="banners-sm">
+    <div id="banners-sm-back">
+        <div id="fp-banners-sm-container">
+                            <div class="fp-banners-sm-col b1">
+                <div class="fp-banner-sm-container">
+                    <a href="/downloads/mysql/8.0.html"><img src="https://labs.mysql.com/common/themes/sakila/banners/b600-mysql-8-utf8mb4.en.jpg" width="300" height="200" alt="MySQL 8.0 - utf8mb4, Unicode"></a>
+                </div>
+            </div>
+                    <div class="fp-banners-sm-col b2">
+                <div class="fp-banner-sm-container">
+                    <a href="/downloads/mysql/8.0.html"><img src="https://labs.mysql.com/common/themes/sakila/banners/b600-mysql-8-2x.en.jpg" width="300" height="200" alt="MySQL 8.0 - Up to 2x Faster"></a>
+                </div>
+            </div>
+                    <div class="fp-banners-sm-col b3">
+                <div class="fp-banner-sm-container">
+                    <a href="/downloads/mysql/8.0.html"><img src="https://labs.mysql.com/common/themes/sakila/banners/b600-mysql-8-mds.en.jpg" width="300" height="200" alt="MySQL 8.0 - SQL and NoSQL"></a>
+                </div>
+            </div>
+                    <div class="fp-banners-sm-col b4">
+                <div class="fp-banner-sm-container">
+                    <a href="https://www.oracle.com/mysql/free/"><img src="https://labs.mysql.com/common/themes/sakila/banners/b600-mysql-database-service5.en.jpg" width="300" height="200" alt="New! MySQL HeatWave"></a>
+                </div>
+            </div>
+                </div>
+    </div>
+</div>
+
+<div class="con pad-slight" id="fp-dev">
+    <div class="rw">
+        <div class="col-2-of-3" id="fp-blogs" style="float: right">
+            <h2>MySQL Blogs</h2>
+            <div class="blog-posts">
+                                <p>
+                    <a href="https://blogs.oracle.com/mysql/post/a-game-changer-for-machine-learning-capabilities">A Game Changer for Machine Learning Capabilities</a>
+                    <br>With HeatWave ML, Oracle is providing a capability that is much more broadly consumable, on a platform that is familiar to millions. While Oracle may have a lead in certain regards, IDC expects competition in the area of database embedded AI/ML to be hot for some time to come. For MySQL users,...                </p>
+                                <p>
+                    <a href="https://blogs.oracle.com/mysql/post/ecopaynet-chooses-mysql-heatwave-over-aws-for-performance-and-price">Ecopaynet Chooses MySQL HeatWave Over AWS for Performance and Price</a>
+                    <br>Ecopaynet's customer success story describes why they chose MySQL HeatWave over AWS to shorten their time to market and benefit from a better price-performance.                </p>
+                                <p>
+                    <a href="https://blogs.oracle.com/mysql/post/mysql-heatwave-ml-analyst-praises">Leading Industry Analysts Praise the New MySQL HeatWave Innovations</a>
+                    <br>Read reactions and praises by leading industry analysts towards the March 2022 new feature announcement for Oracle MySQL HeatWave, a fully managed service that enables customers to run OLTP and OLAP workloads directly from their MySQL Database. New capabilities announced are: in-database machine...                </p>
+                                <p>
+                    <a href="https://blogs.oracle.com/mysql/post/in-database-machine-learning-with-mysql-heatwave">In-Database Machine Learning with MySQL HeatWave</a>
+                    <br>New features and capabilities being introduced with MySQL HeatWave ML.
+                </p>
+                                <p>
+                    <a href="https://blogs.oracle.com/mysql/post/introducing-mysql-shell-for-vs-code">Introducing MySQL Shell for VS Code</a>
+                    <br>A short introduction to the new MySQL Shell for VS Code extension.                </p>
+                                <p>
+                    <a href="https://blogs.oracle.com/mysql/post/migrate-from-azure-for-mysql-database-into-mysql-database-service-mds"> Migrate from Azure for MySQL database into MySQL Database Service (MDS)</a>
+                    <br>This post will walk through the step to have seamless migration from Azure for MySQL to MySQL Database Service(MDS) by using  MySQL Shell Utility.                </p>
+                                <p>
+                    <a href="https://blogs.oracle.com/mysql/post/apache-zeppelin-on-oracle-cloud-with-mysql-heatwave">Apache Zeppelin on Oracle Cloud with MySQL HeatWave</a>
+                    <br>Apache Zeppelin is a web-based notebook notebook that enables data-driven, interactive data analytics, machine learning, and collaborative documents with SQL, Scala, Python, R. In this article, we explain how to enable HeatWave to accelerate the SQL queries.                </p>
+                                <p>
+                    <a href="https://blogs.oracle.com/mysql/post/apache-zeppelin-on-oracle-cloud-with-mysql">Apache Zeppelin on Oracle Cloud with MySQL</a>
+                    <br>Apache Zeppelin is a web-based notebook that enables data-driven, interactive data analytics, machine learning, and collaborative documents with SQL, Scala, Python, R.
+In this article we will see an easy method to deploy Apache Zeppelin on Oracle Cloud with MySQL Database Service.                </p>
+                                <p><a href="https://blogs.oracle.com/mysql/">More Blogs&nbsp;�</a></p>
+            </div>
+        </div>
+        <div class="col-1-of-3 pad-lr-slight" id="fp-dev-side" style="float: left">
+
+            <div class="small-fp-callout-one-line">
+                <a href="https://www.mysql.com/cloud/">MySQL HeatWave �</a>
+            </div>
+
+            <div class="small-fp-callout-one-line">
+                <a href="/doc/">MySQL Documentation �</a>
+            </div>
+
+            <div class="small-fp-callout-one-line">
+                <a href="/downloads/">MySQL Downloads �</a>
+            </div>
+
+            <div class="small-fp-callout-one-line">
+                <a href="https://forums.mysql.com">MySQL Forums �</a>
+            </div>
+
+            <div class="small-fp-callout-one-line">
+                <a href="https://www.mysql.com/products/enterprise/">MySQL Enterprise Edition �</a>
+            </div>
+
+            <div class="small-fp-callout-one-line" style="margin-bottom: 15px;">
+                <a href="https://www.mysql.com/products/cluster/">MySQL Cluster CGE �</a>
+            </div>
+
+            <h2>MySQL Community Server</h2>
+            <ul>
+                                <li><a href="https://dev.mysql.com/downloads/mysql/8.0.html">8.0.28 GA</a></li>
+                                <li><a href="https://dev.mysql.com/downloads/mysql/5.7.html">5.7.37 GA</a></li>
+                            </ul>
+
+            <h2>New Releases&nbsp;<a href="/downloads/rss.php" title="RSS Feed for new product releases"><img src="/common/img/rss-icon-16x16.gif" alt="RSS Feed for new product releases" width="16" height="16"></a></h2>
+            <ul>
+                                <li><a href="https://dev.mysql.com/downloads/cluster/7.6.html">MySQL Cluster 7.6</a><br>
+                                    <span class="subText">(7.6.21 GA)</span>
+                </li>
+                                <li><a href="https://dev.mysql.com/downloads/cluster/7.5.html">MySQL Cluster 7.5</a><br>
+                                    <span class="subText">(7.5.25 GA)</span>
+                </li>
+                                <li><a href="https://dev.mysql.com/downloads/cluster/7.4.html">MySQL Cluster 7.4</a><br>
+                                    <span class="subText">(7.4.35 GA)</span>
+                </li>
+                                <li><a href="https://dev.mysql.com/downloads/connector/cpp/8.0.html">Connector/C++ 8.0</a><br>
+                                    <span class="subText">(8.0.28 GA)</span>
+                </li>
+                                <li><a href="https://dev.mysql.com/downloads/connector/net/8.0.html">Connector/NET 8.0</a><br>
+                                    <span class="subText">(8.0.28 GA)</span>
+                </li>
+                            </ul>
+
+            
+        </div>
+    </div>
+</div>
+
+<div id="disclaimer-oracle">
+    <p class="small">
+    "The Documents contained within this site may include statements about Oracle's product development plans.
+    Many factors can materially affect Oracle's product development plans and the nature and timing of future
+    product releases. Accordingly, this Information is provided to you solely for information only, is not a
+    commitment to deliver any material, code, or functionality, and should not be relied upon in making purchasing
+    decisions. The development, release, and timing of any features or functionality described remains at the sole
+    discretion of Oracle.</p>
+
+    <p>THIS INFORMATION MAY NOT BE INCORPORATED INTO ANY CONTRACTUAL AGREEMENT WITH ORACLE OR ITS SUBSIDIARIES
+    OR AFFILIATES. ORACLE SPECIFICALLY DISCLAIMS ANY LIABILITY WITH RESPECT TO THIS INFORMATION. Refer to the
+    <a href="http://www.oracle.com/html/copyright.html">LEGAL NOTICES</a> AND
+    <a href="http://www.oracle.com/html/terms.html">TERMS OF USE</a> for further information."</p>
+
+</div>
+
+
+            
+        </div>
+    </div>
+
+    <footer>
+        <div id="footer-bottom">
+                                    <div class="footer-contact">
+                <div id="footer-contact-icon">
+                    <span class="icon-call-phone"></span>
+                </div>
+                <div id="footer-contact-numbers">
+                    <strong>Contact MySQL Sales</strong><br>
+                    USA/Canada: +1-866-221-0634 &nbsp;
+                    (<a href="https://www.mysql.com/about/contact/phone/" class="darker-blue">More Countries �</a>)
+                </div>
+                <div id="footer-contact-copyright">
+                    <a href="http://www.oracle.com/" aria-label="Oracle" title="Oracle"><span class="oracle-logo"></span></a>
+                    &nbsp; � 2022, Oracle Corporation and/or its affiliates
+                </div>
+            </div>
+            <div class="social-icons">
+                <a aria-label="Join us on Facebook" title="Join us on Facebook" href="http://www.facebook.com/mysql"><span class="icon-facebook-square"></span></a>
+                <a aria-label="Follow us on Twitter" title="Follow us on Twitter" href="https://twitter.com/mysql"><span class="icon-twitter-square"></span></a>
+                <a aria-label="Follow us on LinkedIn" title="Follow us on LinkedIn" href="https://www.linkedin.com/company/mysql"><span class="icon-linkedin-square"></span></a>
+                <a aria-label="Visit our YouTube channel" title="Visit our YouTube channel" href="http://www.youtube.com/mysqlchannel"><span class="icon-youtube-square"></span></a>
+            </div>
+            <br class="clear">
+        </div>
+        <div id="footer-links">
+
+            <div id="site-footer-links">
+                <div id="footer-nav"></div>
+
+                <div class="links">
+                    <ul>
+                        <li class="top"><a href="https://www.mysql.com/products/">Products</a></li>
+                        <li><a href="https://www.mysql.com/cloud/">MySQL Database Service</a></li>
+                        <li><a href="https://www.mysql.com/products/enterprise/">MySQL Enterprise Edition</a></li>
+                        <li><a href="https://www.mysql.com/products/standard/">MySQL Standard Edition</a></li>
+                        <li><a href="https://www.mysql.com/products/classic/">MySQL Classic Edition</a></li>
+                        <li><a href="https://www.mysql.com/products/cluster/">MySQL Cluster CGE</a></li>
+                        <li><a href="https://www.mysql.com/oem/">MySQL Embedded (OEM/ISV)</a></li>
+                    </ul>
+                </div>
+
+                <div class="links">
+                    <ul>
+                        <li class="top"><a href="https://www.mysql.com/services/">Services</a></li>
+                        <li><a href="https://www.mysql.com/training/">Training</a></li>
+                        <li><a href="https://www.mysql.com/certification/">Certification</a></li>
+                        <li><a href="https://www.mysql.com/consulting/">Consulting</a></li>
+                        <li><a href="https://www.mysql.com/support/">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="links">
+                    <ul>
+                        <li class="top"><a href="https://www.mysql.com/downloads/">Downloads</a></li>
+                        <li><a href="https://dev.mysql.com/downloads/mysql/">MySQL Community Server</a></li>
+                        <li><a href="https://dev.mysql.com/downloads/cluster/">MySQL NDB Cluster</a></li>
+                        <li><a href="https://dev.mysql.com/downloads/shell/">MySQL Shell</a></li>
+                        <li><a href="https://dev.mysql.com/downloads/router/">MySQL Router</a></li>
+                        <li><a href="https://dev.mysql.com/downloads/workbench/">MySQL Workbench</a></li>
+                    </ul>
+                </div>
+
+                <div class="links">
+                    <ul>
+                        <li class="top"><a href="https://dev.mysql.com/doc/">Documentation</a></li>
+                        <li><a href="https://dev.mysql.com/doc/refman/en/">MySQL Reference Manual</a></li>
+                        <li><a href="https://dev.mysql.com/doc/workbench/en/">MySQL Workbench</a></li>
+                        <li><a href="https://dev.mysql.com/doc/index-cluster.html">MySQL NDB Cluster</a></li>
+                        <li><a href="https://dev.mysql.com/doc/index-connectors.html">MySQL Connectors</a></li>
+                        <li><a href="https://dev.mysql.com/doc/#topic">Topic Guides</a></li>
+                    </ul>
+                </div>
+
+                <div class="links">
+                    <ul>
+                        <li class="top"><a href="https://www.mysql.com/about/">About MySQL</a></li>
+                        <li><a href="https://www.mysql.com/about/contact/">Contact Us</a></li>
+                        <li><a href="https://blogs.oracle.com/mysql/">Blogs</a></li>
+                                                                        <li><a href="https://www.mysql.com/buy-mysql/">How to Buy</a></li>
+                        <li><a href="https://www.mysql.com/partners/">Partners</a></li>
+                        <li><a href="https://www.mysql.com/about/jobs/">Job Opportunities</a></li>
+                        <li><a href="https://www.mysql.com/sitemap.html">Site Map</a></li>
+                    </ul>
+                </div>
+
+                            </div>
+
+            <div id="footer-logo">
+                <a href="http://www.oracle.com/" aria-label="Oracle" title="Oracle"><span class="oracle-logo"></span></a>
+                &nbsp; � 2022, Oracle Corporation and/or its affiliates
+                <div class="footer-legal-links">
+                    <a href="https://www.mysql.com/about/legal/">Legal Policies</a> |
+                    <a href="http://www.oracle.com/us/legal/privacy/index.htm">Your Privacy Rights</a> |
+                    <a href="http://www.oracle.com/us/legal/terms/index.html">Terms of Use</a> |
+                    <a href="http://www.oracle.com/us/legal/third-party-trademarks/index.html">Trademark Policy</a> |
+                    <a href="http://www.oracle.com/technetwork/community/oca-486395.html">Contributor Agreement</a> |
+                    <div id="teconsent" consent="undefined" aria-label="Open Cookie Preferences Modal" class="truste_caIcon_display" role="complementary"><a role="link" id="icon-id08427296345136694" tabindex="0" lang="en" aria-label="Cookie Preferences" class="truste_cursor_pointer">Cookie Preferences</a></div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</div><iframe name="trustarc_notice" id="trustarcNoticeFrame" title="Trustarc Cross-Domain Consent Frame" src="https://consent.trustarc.com/get?name=crossdomain.html&amp;domain=oracle.com" style="display: none;"></iframe>
+
+            <script>
+    if ((oracle.truste.api.getGdprConsentDecision().consentDecision) &&
+            (oracle.truste.api.getGdprConsentDecision().consentDecision.indexOf(0) != -1 ||
+             oracle.truste.api.getGdprConsentDecision().consentDecision.indexOf(2) != -1) )
+    {
+        document.write('<script src="https://labs.mysql.com/common/js/metrics/s_code_remote.js"><\/script>');
+        document.write('<script type="text/javascript" async src="//c.oracleinfinity.io/acs/account/wh3g12c3gg/js/mysql/odc.js?_ora.context=analytics:production"><\/script>');
+    }
+    </script><script src="https://labs.mysql.com/common/js/metrics/s_code_remote.js"></script><script type="text/javascript" src="https://www.mysql.com/common/js/metrics/metrics_group1.js"></script><script type="text/javascript" async="" src="//c.oracleinfinity.io/acs/account/wh3g12c3gg/js/mysql/odc.js?_ora.context=analytics:production"></script>
+
+        
+    
+
+
+</body></html>

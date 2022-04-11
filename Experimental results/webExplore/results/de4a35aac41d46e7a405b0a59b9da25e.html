@@ -1,0 +1,155 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr"><head></head><body><br>
+<b>Notice</b>:  Undefined variable: group in <b>C:\xampp\htdocs\timeclock\punchclock\punchclock.php</b> on line <b>66</b><br>
+<!--?xml version="1.0" encoding="utf-8"?-->
+
+
+
+
+    <title>Punchclock - Melvina - PHP Timeclock 1.04</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/punchclock.css">
+    <style type="text/css">
+        tr.odd {
+            background-color: #CFEBEF;
+        }
+
+        tr.even {
+            background-color: #ABCBFB;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/nyroModal.css">
+<style type="text/css">
+media print {
+	.emp_list tbody { height:auto; color:#222; }
+}
+</style>
+    <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="scripts/resize_window.js"></script>
+    <script type="text/javascript" src="scripts/jquery.scrollTo-1.3.3-min.js"></script>
+<script type="text/javascript" src="scripts/jquery.nyroModal-1.6.2.min.js"></script>
+<script type="text/javascript" src="scripts/punchclock.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(function(){
+	// Add click handlers to table rows.
+	$('.display_row').click(function(e){
+		e.preventDefault();
+		display.lock();			// prevent refresh while entry forms are open
+		keyboard.unbind_handler();	// no scrolling while entry forms are open
+		var id = this.id.replace(/^emp_/,'').replace(/_/g,' ');	// remove emp_ prefix and change _ to spaces
+		$.nyroModalManual({
+			url:'entry.ajax.php?emp='+encodeURIComponent(id),
+			minHeight:250,
+			endFillContent:function(){setTimeout(function(){ $('form input:first').focus(); },500);}
+		});
+		return false;
+	}).attr({title:'Click to punch in or punch out.'});
+
+	// Resize window, make tbody of table scrollable. Only works in FF now.
+	if ($.browser.mozilla) {
+		var orig_tbody_height = $('.emp_list tbody').height();
+
+		var page_border_width = 1;			// assume for now
+		var page_top_offset = $('.page').offset().top + page_border_width;;
+		var page_bottom_offset = page_top_offset;	// assume same as top
+
+		var tbody_top_offset = $('.emp_list tbody tr:first').offset().top;
+		var tbody_bottom_offset = $('.footer').height() + page_bottom_offset;
+
+		var resize_page = function(){
+			var compute_tbody_height = $(window).height() - tbody_top_offset - tbody_bottom_offset;
+			if (compute_tbody_height < orig_tbody_height) {
+				$('.emp_list tbody').height(compute_tbody_height);
+			} else {
+				$('.emp_list tbody').css({height:'auto'});
+			}
+		};
+		$(window).unbind('resize');
+		$(window).resize(resize_page).resize();
+
+		// Setup keyboard handler to scroll to name beginning with the key press.
+		keyboard.set_scroll_body_height(orig_tbody_height);
+		keyboard.bind_handler();
+	}
+
+	// Setup nyroModal event to unlock display so it can be synchronized after popup forms are complete.
+	$.fn.nyroModal.settings.endRemove = function() { display.unlock(); if ($.browser.mozilla) keyboard.bind_handler(); }
+
+	// Show and hide "synchronizing" message.
+	setTimeout(function(){ $('#message').css({visibility:'hidden'}); }, 1000);
+
+	display.schedule_refresh(60);
+});
+//]]>
+</script>
+
+
+<div class="page" style="height: 914px;">
+
+    <table class="header" width="100%" border="0" cellpadding="0" cellspacing="1">
+  <tbody><tr><td align="left"><a href="../index.php"><img border="0" src="../images/logos/phptimeclock.png"></a></td>
+    <td colspan="2" scope="col" align="right" valign="middle"><a href="http://www.historychannel.com/tdih" style="color:#000000;font-family:Tahoma;font-size:10pt;
+            text-decoration:none;">April 6, 2022&nbsp;&nbsp;</a></td></tr>
+</tbody></table>
+<table class="topmain_row_color" width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td align="right" valign="middle"><img src="../images/icons/house.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../index.php" style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;">
+        Home&nbsp;&nbsp;</a></td>
+    <td align="right" valign="middle" width="23"><img src="../images/icons/bricks.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../login.php" style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;">
+        Administration&nbsp;&nbsp;</a></td>
+    <td align="right" valign="middle" width="23"><img src="../images/icons/report.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../reports/index.php" style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;">Reports&nbsp;&nbsp;</a></td>
+    <td align="right" valign="middle" width="23"><img src="../images/icons/time.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../punchclock/menu.php" style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;">Punchclock&nbsp;&nbsp;</a></td>
+</tr></tbody></table>
+
+    <select id="select_offices" onchange="location.href='?office='+encodeURIComponent(this.value)+'&amp;group='">
+<option value="">-- All Offices --</option>
+<option value="Filiberto">Filiberto</option>
+<option value="Melvina" selected="selected">Melvina</option>
+<option value="quest">quest</option>
+</select>
+<select id="select_groups" onchange="location.href='?office=Melvina&amp;group='+encodeURIComponent(this.value)">
+<option value="">-- All Groups --</option>
+
+</select>
+
+    <div class="content">
+<div id="message">Synchronizing, Please Wait...</div>
+<div id="timeclock">4/6/2022, 9:26:01am</div>
+<script type="text/javascript">
+//<![CDATA[
+timer.start_time = timer.time = new Date('Wednesday April 6, 2022 09:26');	// server time
+timer.frequency = 1000;		// milliseconds
+function timer(id) {
+	var e = typeof id == 'string' ? document.getElementById(id) : id;	// id or object
+	if (! e) { return; }
+
+	var ticktock = function() {
+		timer.time.setTime(timer.time.getTime() + timer.frequency);
+		e.innerHTML = timer.time.toLocaleString().replace(/ GMT.*/,'').replace(/0(\d,)/,'$1').replace(/(\d{1,2}):(\d{2}):(\d{2})( )([AP]M)/,function(p0,p1,p2,p3,p4,p5) { return p1+':'+p2+':'+p3+p5.toLowerCase(); });
+		setTimeout(arguments.callee,timer.frequency);
+	};
+
+	ticktock();		// start ticking
+}
+timer('timeclock');
+//]]>
+</script><div class="error">
+No active employee records were found.
+</div></div><!-- content -->
+
+<div class="footer">
+</div>
+
+</div><!-- page -->
+
+
+</body></html>

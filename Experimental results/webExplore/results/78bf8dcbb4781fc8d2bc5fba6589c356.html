@@ -1,0 +1,95 @@
+<html><head><title>PHP Timeclock 1.04 - Audit Log</title>
+
+
+<link rel="stylesheet" type="text/css" media="screen" href="../css/default.css">
+<link rel="stylesheet" type="text/css" media="print" href="../css/print.css">
+<script language="javascript" src="../scripts/CalendarPopup.js"></script>
+<script language="javascript">document.write(getCalendarStyles());</script><style>
+.cpYearNavigation,.cpMonthNavigation { background-color:#cdc0b0; text-align:center; vertical-align:center; text-decoration:none; color:#000000; font-family:Tahoma; border-width:0px 0px 1px 0px; border-style:solid; border-color: #748771; }
+.cpDayColumnHeader, .cpYearNavigation,.cpMonthNavigation,.cpCurrentMonthDate,.cpCurrentMonthDateDisabled,.cpOtherMonthDate,.cpOtherMonthDateDisabled,.cpCurrentDate,.cpCurrentDateDisabled,.cpTodayText,.cpTodayTextDisabled,.cpText { font-family:Tahoma; font-size:11px; }
+TD.cpDayColumnHeader { text-align:right; border:solid thin #C0C0C0;border-width:0px 0px 1px 0px; }
+.cpCurrentMonthDate, .cpOtherMonthDate, .cpCurrentDate  { text-align:right; text-decoration:none; }
+.cpCurrentMonthDateDisabled, .cpOtherMonthDateDisabled, .cpCurrentDateDisabled { color:#D0D0D0; text-align:right; text-decoration:line-through; }
+.cpCurrentMonthDate, .cpCurrentDate { color:#000000; }
+.cpOtherMonthDate { color:#808080; }
+TD.cpCurrentDate { color:white; background-color: #eeeeee; border-width:1px; border:solid thin #748771; }
+TD.cpCurrentDateDisabled { border-width:1px; border:solid thin #FFAAAA; }
+TD.cpTodayText, TD.cpTodayTextDisabled { border:solid thin #C0C0C0; border-width:1px 0px 0px 0px;}
+A.cpTodayText, SPAN.cpTodayTextDisabled { height:20px; }
+A.cpTodayText { color:black; }
+.cpTodayTextDisabled { color:#D0D0D0; }
+.cpBorder { border:solid thin #748771;border-width:1px 1px 1px 1px; }
+</style>
+
+<script language="javascript">var cal = new CalendarPopup('mydiv');</script>
+<script language="javascript" src="../scripts/pnguin.js"></script>
+</head>
+<body>
+<table class="header" width="100%" border="0" cellpadding="0" cellspacing="1">
+  <tbody><tr><td align="left"><a href="../index.php"><img border="0" src="images/logos/phptimeclock.png"></a></td>
+    <td colspan="2" scope="col" align="right" valign="middle"><a href="http://www.historychannel.com/tdih" style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;">April 6, 2022&nbsp;&nbsp;</a></td></tr>
+</tbody></table>
+<table class="topmain_row_color" width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td align="right" valign="middle"><img src="../images/icons/house.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../index.php" style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;">
+        Home&nbsp;&nbsp;</a></td>
+    <td align="right" valign="middle" width="23"><img src="../images/icons/bricks.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../login.php" style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;">
+        Administration&nbsp;&nbsp;</a></td>
+    <td align="right" valign="middle" width="23"><img src="../images/icons/report.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="index.php" style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;">
+        Reports&nbsp;&nbsp;</a></td>
+    <td align="right" valign="middle" width="23"><img src="../images/icons/time.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../punchclock/menu.php" style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;">Punchclock&nbsp;&nbsp;</a></td>
+</tr></tbody></table>
+<table width="100%" height="89%" border="0" cellpadding="0" cellspacing="1">
+  <tbody><tr valign="top">
+    <td>
+      <table width="100%" height="100%" border="0" cellpadding="10" cellspacing="1">
+        <tbody><tr class="right_main_text">
+          <td valign="top">
+            <br>
+            <form name="form" action="/timeclock/reports/audit.php" method="post" onsubmit="return isFromOrToDate();">
+            <table align="center" class="table_border" width="60%" border="0" cellpadding="0" cellspacing="3">
+              <tbody><tr><td class="table_rows" width="20" align="center"><img src="../images/icons/information.png"></td><td class="table_rows" style="color:#3366CC;">This report will display all information pertaining to punch-in/out times that have been 
+                      added, edited, or deleted from PHP Timeclock.</td></tr>
+            </tbody></table>
+            <br>
+            <table align="center" class="table_border" width="60%" border="0" cellpadding="3" cellspacing="0">
+              <tbody><tr>
+                <th class="rightside_heading" nowrap="" halign="left" colspan="3"><img src="../images/icons/report.png">&nbsp;&nbsp;&nbsp;Audit Log</th>
+                    </tr>
+              <tr><td height="15"></td></tr>
+              <input type="hidden" name="date_format" value="M/d/yyyy">
+              <tr><td class="table_rows" style="padding-left:32px;" width="20%" nowrap="">From Date: (m/d/yyyy)</td><td style="color:red;font-family:Tahoma;font-size:10px;padding-left:20px;" width="80%">
+                      <input type="text" size="10" maxlength="10" name="from_date" style="color:#27408b">&nbsp;*&nbsp;&nbsp;
+                      <a href="#" onclick="form.from_date.value='';cal.select(document.forms['form'].from_date,'from_date_anchor','M/d/yyyy');
+                      return false;" name="from_date_anchor" id="from_date_anchor" style="font-size:11px;color:#27408b;">Pick Date</a></td></tr><tr>
+              </tr><tr><td class="table_rows" style="padding-left:32px;" width="20%" nowrap="">To Date: (m/d/yyyy)</td><td style="color:red;font-family:Tahoma;font-size:10px;padding-left:20px;" width="80%">
+                      <input type="text" size="10" maxlength="10" name="to_date" style="color:#27408b">&nbsp;*&nbsp;&nbsp;
+                      <a href="#" onclick="form.to_date.value='';cal.select(document.forms['form'].to_date,'to_date_anchor','M/d/yyyy');
+                      return false;" name="to_date_anchor" id="to_date_anchor" style="font-size:11px;color:#27408b;">Pick Date</a></td></tr><tr>
+              </tr><tr><td class="table_rows" align="right" colspan="3" style="color:red;font-family:Tahoma;font-size:10px;">*&nbsp;required&nbsp;</td></tr>
+            </tbody></table>
+            <div style="position:absolute;visibility:hidden;background-color:#ffffff;layer-background-color:#ffffff;" id="mydiv" height="200">&nbsp;</div>
+            <table align="center" width="60%" border="0" cellpadding="0" cellspacing="3">
+              <tbody><tr><td class="table_rows" height="25" valign="bottom">1.&nbsp;&nbsp;&nbsp;Export to CSV? (link to CSV file will be in the top right of
+                      the next page)</td></tr>
+              <tr><td class="table_rows" align="left" nowrap="" style="padding-left:15px;"><input type="radio" name="csv" value="1">&nbsp;Yes
+                      <input type="radio" name="csv" value="0" checked="">&nbsp;No</td></tr>
+              <tr><td height="10"></td></tr>
+            </tbody></table>
+            <table align="center" width="60%" border="0" cellpadding="0" cellspacing="3">
+              <tbody><tr><td width="30"><input type="image" name="submit" value="Edit Time" align="middle" src="../images/buttons/next_button.png"></td><td><a href="index.php"><img src="../images/buttons/cancel_button.png" border="0"></a></td></tr></tbody></table></form></td></tr>
+        <tr class="hide"><td height="4%" class="misc_items" align="right" valign="middle" scope="row" colspan="2">Powered by&nbsp;<a class="footer_links" href="http://httpd.apache.org/">Apache</a>&nbsp;±<a class="footer_links" href="http://mysql.org">&nbsp;MySql</a> 
+            ±<a class="footer_links" href="http://php.net">&nbsp;PHP</a>&nbsp;•<a class="footer_links" href="http://timeclock.sourceforge.net">&nbsp;PHP Timeclock&nbsp;1.04</a></td></tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+
+</body></html>

@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr"><head>
+    <title>Menu = PHP Timeclock 1.04</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/punchclock.css">
+    <style type="text/css">
+        tr.odd {
+            background-color: #CFEBEF;
+        }
+
+        tr.even {
+            background-color: #ABCBFB;
+        }
+    </style>
+    <style type="text/css">
+a:link, a:visited, a:active { color: #27408b; text-decoration: none; }
+a:hover { font-size:inherit; text-decoration:none; }
+#entry_links, #office_links, #timeclock_links, #export_links  { width:300px; margin:15px auto; font-size:13px; line-height:25px; }
+#entry_links li, #office_links li, #timeclock_links li, #export_links li { list-style:none; padding-left:10px; }
+#entry_links li:hover, #office_links li:hover, #timeclock_links li:hover, #export_links li:hover { color:#853d27; text-decoration:underline; }
+#entry_links li:hover a, #office_links li:hover a,#timeclock_links li:hover a, #export_links li:hover a { color:#853d27; font-size:inherit; }
+</style>
+    <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="scripts/resize_window.js"></script>
+    </head>
+<body>
+<div class="page" style="height: 869px;">
+
+    <table class="header" width="100%" border="0" cellpadding="0" cellspacing="1">
+  <tbody><tr><td align="left"><a href="../index.php"><img border="0" src="../images/logos/phptimeclock.png"></a></td>
+    <td colspan="2" scope="col" align="right" valign="middle"><a href="http://www.historychannel.com/tdih" style="color:#000000;font-family:Tahoma;font-size:10pt;
+            text-decoration:none;">April 6, 2022&nbsp;&nbsp;</a></td></tr>
+</tbody></table>
+<table class="topmain_row_color" width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td align="right" valign="middle"><img src="../images/icons/house.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../index.php" style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;">
+        Home&nbsp;&nbsp;</a></td>
+    <td align="right" valign="middle" width="23"><img src="../images/icons/bricks.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../login.php" style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;">
+        Administration&nbsp;&nbsp;</a></td>
+    <td align="right" valign="middle" width="23"><img src="../images/icons/report.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../reports/index.php" style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;">Reports&nbsp;&nbsp;</a></td>
+    <td align="right" valign="middle" width="23"><img src="../images/icons/time.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../punchclock/menu.php" style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;">Punchclock&nbsp;&nbsp;</a></td>
+</tr></tbody></table>
+
+        <div class="content">
+<ul id="entry_links">
+    <li><a href="entry.php">My Time Entry</a></li>
+    <li><a href="timecard.php">My Timecard</a></li>
+</ul>
+
+<ul id="office_links">
+  <li><a href="punchclock.php?office=Filiberto">Filiberto Punchclock</a></li>
+  <li><a href="punchclock.php?office=Melvina">Melvina Punchclock</a></li>
+  <li><a href="punchclock.php?office=quest">quest Punchclock</a></li>
+</ul>
+
+<ul id="timeclock_links">
+    <li><a href="../timeclock.php">Timeclock Main Program</a></li>
+    <li><a href="../login_reports.php">Timeclock Reports</a></li>
+    <li><a href="../login.php">Timeclock Administration</a></li>
+</ul>
+
+<ul id="export_links">
+    <li><a href="export.php">Export Hours</a></li>
+</ul>
+
+</div><!-- content -->
+
+<div class="footer">
+</div>
+
+</div><!-- page -->
+
+
+</body></html>

@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr"><head>
+    <title>Login - PHP Timeclock 1.04</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/punchclock.css">
+    <style type="text/css">
+        tr.odd {
+            background-color: #CFEBEF;
+        }
+
+        tr.even {
+            background-color: #ABCBFB;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/jquery.suggest.css">
+    <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="scripts/resize_window.js"></script>
+    <script type="text/javascript" src="scripts/jquery.suggest.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(function(){
+	$('#emp').suggest('suggest.ajax.php');
+	$('form input:first').focus();
+});
+//]]>
+</script>
+</head>
+<body>
+<div class="page" style="height: 914px;">
+
+    <table class="header" width="100%" border="0" cellpadding="0" cellspacing="1">
+  <tbody><tr><td align="left"><a href="../index.php"><img border="0" src="../images/logos/phptimeclock.png"></a></td>
+    <td colspan="2" scope="col" align="right" valign="middle"><a href="http://www.historychannel.com/tdih" style="color:#000000;font-family:Tahoma;font-size:10pt;
+            text-decoration:none;">April 6, 2022&nbsp;&nbsp;</a></td></tr>
+</tbody></table>
+<table class="topmain_row_color" width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td align="right" valign="middle"><img src="../images/icons/house.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../index.php" style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;">
+        Home&nbsp;&nbsp;</a></td>
+    <td align="right" valign="middle" width="23"><img src="../images/icons/bricks.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../login.php" style="color:#000000;font-family:Tahoma;font-size:10pt;text-decoration:none;">
+        Administration&nbsp;&nbsp;</a></td>
+    <td align="right" valign="middle" width="23"><img src="../images/icons/report.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../reports/index.php" style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;">Reports&nbsp;&nbsp;</a></td>
+    <td align="right" valign="middle" width="23"><img src="../images/icons/time.png" border="0">&nbsp;&nbsp;</td>
+    <td align="right" valign="middle" width="10"><a href="../punchclock/menu.php" style="color:#000000;font-family:Tahoma;font-size:10pt;
+        text-decoration:none;">Punchclock&nbsp;&nbsp;</a></td>
+</tr></tbody></table>
+
+        <div class="content">
+
+<div id="employee_entry_form">
+<form action="/timeclock/punchclock/login.php" method="get">
+<table align="center" class="table_border" width="100%" border="0" cellpadding="3" cellspacing="0">
+  <tbody><tr>
+	<th class="rightside_heading" nowrap="" align="left" colspan="3"><img src="../images/icons/clock_add.png">&nbsp;&nbsp;&nbsp;Enter your name
+	</th>
+  </tr>
+  <tr><td height="15" colspan="3"></td></tr>
+  <tr><td class="table_rows" height="25" width="20%" style="padding-left:32px;" nowrap="">Employee Name:</td>
+      <td colspan="2" width="80%" style="color:red;font-family:Tahoma;font-size:10px;">
+	  <input type="text" size="25" maxlength="50" name="emp" id="emp" value="" autocomplete="off">&nbsp;*</td></tr>
+  <tr><td height="15" colspan="3">&nbsp;</td></tr>
+  <tr><td class="table_rows" align="right" colspan="3" style="color:red;font-family:Tahoma;font-size:10px;">*&nbsp;required&nbsp;</td></tr>
+</tbody></table>
+<table align="center" width="100%" border="0" cellpadding="0" cellspacing="3" class="buttons">
+  <tbody><tr><td width="30"><input type="image" name="submit" value="Next" align="middle" src="../images/buttons/next_button.png"></td>
+      <td><a href="index.php"><img src="../images/buttons/cancel_button.png" border="0"></a></td></tr>
+</tbody></table>
+</form>
+</div>
+</div><!-- content -->
+
+<div class="footer">
+</div>
+
+</div><!-- page -->
+
+
+<ul class="ac_results" style="top: 173px; left: 212.359px;"></ul></body></html>
